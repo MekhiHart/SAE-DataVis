@@ -6,7 +6,8 @@ function App() {
 
   return (
     <>
-      <span style={{color:"black"}}>Hello World</span>
+      <span style={{color:"black", paddingBottom: 30}}>Race Logs</span>
+      <HomeView/>
       <HomeView/>
     </>
   )
