@@ -1,0 +1,12 @@
+.racelog{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr .1fr;
+    padding-left: 30px;
+    background-color: black;
+    color: yellow;
+    height: 60px;
+
+    justify-content: space-around;
+    align-items: center; 
+    
+}
