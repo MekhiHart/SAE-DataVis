@@ -1,3 +1,13 @@
+
+// import s3Client from "../config/dbS3.config"
+const s3 = require("../config/dbS3.config")
+const path = require('path');
+const dotenv = require('dotenv')
+
+// Construct the absolute path to the .env file
+const envPath = path.resolve(__dirname, "../../.env");
+dotenv.config({ path: envPath });
+
 class DBS3Controller{
     constructor(){
         if (DBS3Controller._instance){
@@ -35,9 +45,11 @@ class DBS3Controller{
     } // createRaceFolder
 
     // Called in Home View
-    GetRaceLogs(){
-        // Create the parameters for calling listObjects
+    async GetRaceLogs(){
+        // TODO: Need to filter out folders from other objects
+        
         const bucketName = process.env.AWS_MAIN_BUCKET
+
         const bucketParams = {
             Bucket : bucketName,
         };
@@ -101,6 +113,6 @@ class DBS3Controller{
 
 } // DBS3Controller
 
-const test = new DBS3Controller()
+const dbs3Controller = new DBS3Controller()
 
-test.GetRaceLogs()
+module.exports = dbs3Controller

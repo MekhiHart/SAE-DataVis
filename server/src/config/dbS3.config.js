@@ -1,6 +1,12 @@
 require('aws-sdk/lib/maintenance_mode_message').suppress = true;
-const dotenv = require("dotenv")
-dotenv.config()
+const dotenv = require('dotenv');
+
+const path = require('path');
+
+// Construct the absolute path to the .env file
+const envPath = path.resolve(__dirname, "../../.env");
+dotenv.config({ path: envPath });
+
 
 
 
@@ -13,4 +19,4 @@ AWS.config.update({region: process.env.AWS_DEFAULT_REGION});
 // Create S3 service object
 const s3Client = new AWS.S3({apiVersion: process.env.AWS_API_VERSION});
 
-export default s3Client
+module.exports = s3Client
