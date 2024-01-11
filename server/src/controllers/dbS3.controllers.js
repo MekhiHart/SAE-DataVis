@@ -47,7 +47,6 @@ class DBS3Controller{
 
     // Called in Home View
     async GetRaceFolders(){
-        // TODO: Need to filter out folders from other objects
         const bucketName = process.env.AWS_MAIN_BUCKET
         const prefix = process.env.AWS_MAIN_BUCKET_KEY
         const bucketParams = {
@@ -85,22 +84,16 @@ class DBS3Controller{
     } // GetRaceFolderContents
 
     // called in Graph View
-    GetObject(){
-        const bucketName = process.AWS_MAIN_BUCKET
-        const key = "race_2/"
-
+    async GetMetaData(key){
+        console.log("key: ", key)
+        const bucketName = process.env.AWS_MAIN_BUCKET
         const params ={
             Bucket: bucketName,
             Key: key,
         }
+        const data = await s3.getObject(params).promise()
+        return data
 
-        s3.getObject(params, (err, data) =>{
-            if (err) {
-                console.error('Error uploading to S3:', err);
-            } else {
-                console.log("data retrieved: ", data.Metadata);
-            }
-        })
     } // GetObject
 
     // called in Graph View
