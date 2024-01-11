@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import HomeView from './views/Home_View/HomeView'
 import './App.css'
 

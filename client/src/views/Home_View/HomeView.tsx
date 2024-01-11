@@ -2,12 +2,6 @@ import RaceLog from "./Components/RaceLog";
 import { HomeViewNS } from "../../namespace/HomeViewNS";
 import { useEffect, useState } from "react";
 export default function HomeView(){
-    const data = {
-        id: "12",
-        name: "Helo",
-        date: new Date(Date.now()).toLocaleDateString(),
-        duration: "60",
-    }
 
     const [raceFolders, setRaceFolders] = useState<[HomeViewNS.RaceLogProps["RaceLogData"]?]>([])
     useEffect(() => {
