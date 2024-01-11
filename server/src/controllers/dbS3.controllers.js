@@ -47,21 +47,16 @@ class DBS3Controller{
     // Called in Home View
     async GetRaceLogs(){
         // TODO: Need to filter out folders from other objects
-        
         const bucketName = process.env.AWS_MAIN_BUCKET
-
         const bucketParams = {
             Bucket : bucketName,
         };
         
+        
         // Call S3 to obtain a list of the objects in the bucket
-        s3.listObjects(bucketParams, function(err, data) {
-            if (err) {
-            console.log("Error", err);
-            } else {
-            console.log("Success", data);
-            }
-        });
+        const data = await s3.listObjectsV2(bucketParams).promise()
+        const results = data.Contents
+        return results
     } // listRaceLogs
 
     // called in Subsytem View
