@@ -1,9 +1,10 @@
 
 // import s3Client from "../config/dbS3.config"
 const s3 = require("../config/dbS3.config")
+const RaceModel = require("../models/RaceModel")
 const path = require('path');
 const dotenv = require('dotenv');
-const { json } = require("express");
+
 
 // Construct the absolute path to the .env file
 const envPath = path.resolve(__dirname, "../../.env");
@@ -56,10 +57,9 @@ class DBS3Controller{
         };
         
         // Call S3 to obtain a list of the objects in the bucket
-        const data = await s3.listObjectsV2(bucketParams).promise()
-        const folders = data.CommonPrefixes.map(folder => folder.Prefix)
-        return folders
-        // return results
+        const dataArr = await s3.listObjectsV2(bucketParams).promise()
+        const foldersArr = dataArr.CommonPrefixes.map(folder => folder.Prefix)
+        return foldersArr
     } // GetRaceFolders
 
     // called in Subsytem View
@@ -83,18 +83,17 @@ class DBS3Controller{
         });
     } // GetRaceFolderContents
 
-    // called in Graph View
     async GetMetaData(key){
-        console.log("key: ", key)
         const bucketName = process.env.AWS_MAIN_BUCKET
         const params ={
             Bucket: bucketName,
             Key: key,
         }
         const data = await s3.getObject(params).promise()
-        return data
-
-    } // GetObject
+        const metaData = data.Metadata
+        const res = new RaceModel(metaData)
+        return res
+    } // GetMetaData
 
     // called in Graph View
     ParseObjectToJSON(data){

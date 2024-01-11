@@ -7,11 +7,9 @@ router
     .route("/getAllRaces")
     .get(async (req, res) => {
         const foldersArr = await dbs3Controller.GetRaceFolders()
-        // console.log("folders: ", folders )
-        // console.log("test: ", test)
-        const metadataArr = foldersArr.map(folder => dbs3Controller.GetMetaData(folder))
-        const data = await Promise.all(metadataArr)
-        res.json(data)
+        const S3ObjArr = foldersArr.map(folder => dbs3Controller.GetMetaData(folder))
+        const metaDataArr = await Promise.all(S3ObjArr)
+        res.json(metaDataArr)
     })
 
 module.exports = router
