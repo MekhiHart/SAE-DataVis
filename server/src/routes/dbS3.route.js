@@ -6,9 +6,7 @@ const dbs3Controller = require("../controllers/dbS3.controllers")
 router
     .route("/getAllRaces")
     .get(async (req, res) => {
-        const data = await dbs3Controller.GetRaceLogs()
-        // console.log("data: ", data)
-
+        const data = await dbs3Controller.GetRaceFolders()
         res.json(data)
     })
 

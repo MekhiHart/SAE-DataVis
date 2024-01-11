@@ -2,7 +2,8 @@
 // import s3Client from "../config/dbS3.config"
 const s3 = require("../config/dbS3.config")
 const path = require('path');
-const dotenv = require('dotenv')
+const dotenv = require('dotenv');
+const { json } = require("express");
 
 // Construct the absolute path to the .env file
 const envPath = path.resolve(__dirname, "../../.env");
@@ -45,19 +46,22 @@ class DBS3Controller{
     } // createRaceFolder
 
     // Called in Home View
-    async GetRaceLogs(){
+    async GetRaceFolders(){
         // TODO: Need to filter out folders from other objects
         const bucketName = process.env.AWS_MAIN_BUCKET
+        const prefix = process.env.AWS_MAIN_BUCKET_KEY
         const bucketParams = {
             Bucket : bucketName,
+            Prefix : prefix,
+            Delimiter: "/"
         };
-        
         
         // Call S3 to obtain a list of the objects in the bucket
         const data = await s3.listObjectsV2(bucketParams).promise()
-        const results = data.Contents
-        return results
-    } // listRaceLogs
+        const folders = data.CommonPrefixes.map(folder => folder.Prefix)
+        return folders
+        // return results
+    } // GetRaceFolders
 
     // called in Subsytem View
     GetRaceFolderContents(){
@@ -78,7 +82,7 @@ class DBS3Controller{
             console.log('Contents of the folder in S3:', data.Contents);
         }
         });
-    }
+    } // GetRaceFolderContents
 
     // called in Graph View
     GetObject(){
@@ -101,9 +105,11 @@ class DBS3Controller{
 
     // called in Graph View
     ParseObjectToJSON(data){
-        dataBuffer = data.Body
-        jsonObject = JSON.parse(dataBuffer.toString("utf-8"))
-        console.log("json: ", jsonObject)
+        console.log("data: ", data)
+        const dataBuffer = data.Body
+        const bufferString = dataBuffer.toString("utf8")
+        console.log("buffer: ", bufferString)
+        // return jsonObject
     } // ParseObjectToJSON
 
 } // DBS3Controller
