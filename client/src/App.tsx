@@ -8,7 +8,6 @@ function App() {
     <>
       <span style={{color:"black", paddingBottom: 30}}>Race Logs</span>
       <HomeView/>
-      <HomeView/>
     </>
   )
 }
