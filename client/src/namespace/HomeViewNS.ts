@@ -7,6 +7,7 @@ export namespace HomeViewNS{
             name: string,
             date: string,
             duration: string,
+            bucketKey: string
         }
     }
     
