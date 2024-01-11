@@ -91,6 +91,7 @@ class DBS3Controller{
         }
         const data = await s3.getObject(params).promise()
         const metaData = data.Metadata
+        metaData["bucket_key"] = key
         const res = new RaceModel(metaData)
         return res
     } // GetMetaData
