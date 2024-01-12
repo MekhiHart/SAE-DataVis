@@ -12,8 +12,7 @@ export default function SubsystemLogsList(props: SubsystemListProps){
     }
     return(
         <div>
-            {subsystemLogs.map(obj => <div key={obj.subsystem}> {obj.subsystem}</div>)}
-            <SubsystemCard SubsystemCardData={test} />
+            {subsystemLogs.map(obj => <SubsystemCard key={obj.key} SubsystemCardData={obj}/>)}
         </div>
     )
     
