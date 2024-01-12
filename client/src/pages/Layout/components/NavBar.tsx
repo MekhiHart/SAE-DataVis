@@ -1,4 +1,5 @@
 import saeIcon from "../../../assets/SAEIcon.png"
+import "../index.css"
 export default function NavBar(){
     return(
         <div id="navbar">

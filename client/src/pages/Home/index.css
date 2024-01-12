@@ -17,22 +17,9 @@
     margin: 0 60px
 }
 
-#navbar{
-    background-color: #f1f1fc;
-    height: 90px;
-    display: flex;
-    align-items: center;
-}
 
-#footer{
-    background-color: #f1f1fc;
-    height: 90px;
-    margin: 20px ;
 
-    display: flex;
-    align-items: center; 
-    justify-content: center;
-}
+
 
 #website--icon{
     width: 70px;
