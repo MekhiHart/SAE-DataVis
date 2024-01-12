@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom"
 import { useGetRaceFolderContents } from "../../hooks/useGetRaceFolderContents"
-
+import SubsystemLogsList from "./components/SubsystemLogsList"
 export default function Subsytem(){
     const location = useLocation()
     const bucketKey = location.state && location.state.bucketKey
@@ -10,7 +10,7 @@ export default function Subsytem(){
     return(
         <div>
             <h2>{bucketKey}</h2>
-            {subsytemLogs.map(obj => <div key={obj.subsystem}> {obj.subsystem }</div>)}
+            <SubsystemLogsList SubsystemListData={subsytemLogs} />
         </div>
     )
 }
