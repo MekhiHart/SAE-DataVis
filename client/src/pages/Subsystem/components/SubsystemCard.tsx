@@ -17,7 +17,7 @@ export default function SubsystemCard(props:SubsystemCardProps){
 }
 
 function SubsystemIcon(props: {subsystemName: string}){
-    let icon: FontAwesomeIconProps["icon"] = faGear
+    let icon: FontAwesomeIconProps["icon"]
     switch (props.subsystemName){
         case "brakes":
             icon = faPause
@@ -44,6 +44,9 @@ function SubsystemIcon(props: {subsystemName: string}){
 
         case "steering":
             icon = faCircleNotch
+            break
+        default:
+            icon = faGear
             break
     }
 
