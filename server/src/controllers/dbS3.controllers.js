@@ -46,7 +46,7 @@ class DBS3Controller{
         })
     } // createRaceFolder
 
-    // Called in Home View
+    // * Called in Home View, DONE
     async GetRaceFolders(){
         const bucketName = process.env.AWS_MAIN_BUCKET
         const prefix = process.env.AWS_MAIN_BUCKET_KEY
@@ -62,27 +62,50 @@ class DBS3Controller{
         return foldersArr
     } // GetRaceFolders
 
-    // called in Subsytem View
-    GetRaceFolderContents(){
+    // * called in Subsytem View
+    async GetRaceFolderContents(bucketKey){
+        // O(n) run time
+        function parseSubsystem(key){
+            const rightIdx = key.length - 1
+            if (key[rightIdx] == "/"){
+                return "folder found"
+            }
+
+            const currWord = []
+            let curr = rightIdx - 5
+            while (key[curr] != "/"){
+            currWord.push(key[curr])
+            curr -= 1
+            
+            }
+
+            const reverseArr = currWord.reverse()
+            return reverseArr.join("")
+        }
+
         // Specify the bucket name and the prefix (folder path) in S3
         const bucketName = process.env.AWS_MAIN_BUCKET;
-        const prefix = 'race_2';
+        const prefix = bucketKey;
 
-        // List the contents of the folder in S3
         const params = {
-        Bucket: bucketName,
-        Prefix: prefix,
+            Bucket: bucketName,
+            Prefix: prefix,
         };
 
-        s3.listObjectsV2(params, (err, data) => {
-        if (err) {
-            console.error('Error listing S3 contents:', err);
-        } else {
-            console.log('Contents of the folder in S3:', data.Contents);
-        }
-        });
+        const dataArr = await s3.listObjectsV2(params).promise()
+
+        const contents = dataArr.Contents.filter(content => content.Key !== prefix)
+        const res = contents.map(content => ({
+            subsystem: parseSubsystem(content.Key),
+            key: content.Key
+        }))
+
+        return res
+            
+            
     } // GetRaceFolderContents
 
+    //* Helper func, DONE
     async GetMetaData(key){
         const bucketName = process.env.AWS_MAIN_BUCKET
         const params ={
@@ -96,7 +119,7 @@ class DBS3Controller{
         return res
     } // GetMetaData
 
-    // called in Graph View
+    //TODO called in Graph View
     ParseObjectToJSON(data){
         console.log("data: ", data)
         const dataBuffer = data.Body

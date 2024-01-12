@@ -13,4 +13,13 @@ router
         res.json(metaDataArr)
     })
 
+router
+    .route("/getRaceFolderContents")
+    .post(async (req, res) => {
+        const bucketKey = req.body["bucket_key"]
+        const data = await dbs3Controller.GetRaceFolderContents(bucketKey)
+        res.json(data)
+        
+    })
+
 module.exports = router
