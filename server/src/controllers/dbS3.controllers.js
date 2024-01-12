@@ -74,8 +74,15 @@ class DBS3Controller{
             const currWord = []
             let curr = rightIdx - 5
             while (key[curr] != "/"){
-            currWord.push(key[curr])
-            curr -= 1
+
+                if (key[curr] == "_"){
+                    currWord.push(" ")
+                }
+                else{
+                    currWord.push(key[curr])
+                }
+                
+                curr -= 1
             
             }
 
