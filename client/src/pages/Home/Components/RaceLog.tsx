@@ -2,6 +2,7 @@ import "../index.css"
 import { FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import { faChevronRight, faClock, faCalendar, faSignature, faHashtag} from "@fortawesome/free-solid-svg-icons"
 import { HomeViewNS } from "../../../utils/namespace/HomeNS"
+import {IconDefinition} from "@fortawesome/free-solid-svg-icons"
 
 
 export default function RaceLog(props:HomeViewNS.RaceLog){
@@ -17,7 +18,12 @@ export default function RaceLog(props:HomeViewNS.RaceLog){
     )
 }
 
-function Detail(props: HomeViewNS.IDetailProps) {
+interface IDetailProps{
+    icon: IconDefinition,
+    content: string,
+    isDuration?: boolean
+}
+function Detail(props: IDetailProps) {
     const {icon, content, isDuration} = props
     return(
         <div style={{display:"flex", alignItems:"center"}}>
