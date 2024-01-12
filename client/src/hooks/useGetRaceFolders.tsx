@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react"
 import { HomeViewNS } from "../utils/namespace/HomeNS";
+import { dbs3Controller } from "../services/api/dbs3Controller";
 
 export const useGetRaceFolders = () => {
-    const [raceFolders, setRaceFolders] = useState<[HomeViewNS.RaceLogProps["RaceLogData"]?]>([])
+    const [raceFolders, setRaceFolders] = useState<HomeViewNS.RaceLog["RaceLogData"][]>([])
     useEffect(() => {
         const fetchData = async () =>{
-            const data = await fetch("http://localhost:8000/api/getAllRaces")
-            const res = await data.json()
-            setRaceFolders(res)
+            const data = await dbs3Controller.GetRaceFolders()
+            setRaceFolders(data)
         }
 
         fetchData()

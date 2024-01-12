@@ -4,7 +4,7 @@ import { faChevronRight, faClock, faCalendar, faSignature, faHashtag} from "@for
 import { HomeViewNS } from "../../../utils/namespace/HomeNS"
 
 
-export default function RaceLog(props:HomeViewNS.RaceLogProps){
+export default function RaceLog(props:HomeViewNS.RaceLog){
     const {id, name, date, duration} = props.RaceLogData
     return(
         <div className="racelog">

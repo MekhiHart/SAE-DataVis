@@ -1,7 +1,7 @@
 import {IconDefinition} from "@fortawesome/free-solid-svg-icons"
 
 export namespace HomeViewNS{
-    export interface RaceLogProps{
+    export interface RaceLog{
         RaceLogData:{
             id: string,
             name: string,
