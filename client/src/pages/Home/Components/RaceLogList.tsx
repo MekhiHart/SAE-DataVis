@@ -1,9 +1,9 @@
-import { HomeViewNS } from "../../../utils/namespace/HomeNS"
+import { Interfaces } from "../../../utils/namespaces/Interfaces"
 import RaceLog from "./RaceLog"
 
 
 interface RaceLogListProps{
-    RaceLogListData: HomeViewNS.RaceLog["RaceLogData"][]
+    RaceLogListData: Interfaces.IRaceLog["RaceLogData"][]
 }
 export default function RaceLogList(props:RaceLogListProps){
     const raceFolders = props.RaceLogListData

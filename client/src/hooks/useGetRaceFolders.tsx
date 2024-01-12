@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { HomeViewNS } from "../utils/namespace/HomeNS";
+import { HomeViewNS } from "../utils/namespaces/Interfaces";
 import { dbs3Controller } from "../services/api/dbs3Controller";
 
 export const useGetRaceFolders = () => {

@@ -2,7 +2,7 @@ import "../index.css"
 import {Link} from "react-router-dom"
 import { FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import { faChevronRight, faClock, faCalendar, faSignature, faHashtag} from "@fortawesome/free-solid-svg-icons"
-import { HomeViewNS } from "../../../utils/namespace/HomeNS"
+import { HomeViewNS } from "../../../utils/namespaces/Interfaces"
 import {IconDefinition} from "@fortawesome/free-solid-svg-icons"
 
 

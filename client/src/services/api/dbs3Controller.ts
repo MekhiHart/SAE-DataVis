@@ -1,4 +1,4 @@
-import { HomeViewNS } from "../../utils/namespace/HomeNS";
+import { HomeViewNS } from "../../utils/namespaces/Interfaces";
 
 class DBS3Controller{
     async GetRaceFolders(): Promise<HomeViewNS.RaceLog["RaceLogData"][]>{
