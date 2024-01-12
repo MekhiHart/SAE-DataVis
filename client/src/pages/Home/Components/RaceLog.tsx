@@ -7,14 +7,14 @@ import {IconDefinition} from "@fortawesome/free-solid-svg-icons"
 
 
 export default function RaceLog(props:HomeViewNS.RaceLog){
-    const {id, name, date, duration} = props.RaceLogData
+    const {id, name, date, duration, bucketKey} = props.RaceLogData
     return(
-        <Link to="subsystem"className="racelog">
+        <Link to="/subsystem" state={{bucketKey: bucketKey}} className="racelog" >
             <Detail icon={faHashtag} content={id} />
             <Detail icon={faSignature} content={name} />
             <Detail icon={faCalendar} content={date} />
             <Detail icon={faClock} content={duration} isDuration={true} />
-            <FontAwesomeIcon icon={faChevronRight} onClick={() => console.log("Hello")}/>
+            <FontAwesomeIcon icon={faChevronRight}/>
         </Link>
     )
 }
