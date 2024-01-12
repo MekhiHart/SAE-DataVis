@@ -1,7 +1,6 @@
 import { Interfaces } from "../../../utils/namespaces/Interfaces"
 import RaceLog from "./RaceLog"
 
-
 interface RaceLogListProps{
     RaceLogListData: Interfaces.IRaceLog["RaceLogData"][]
 }

@@ -1,0 +1,18 @@
+.subsystem--card{
+    width: 220px;
+    height: 300px;
+    background-color: #ddd9d1;
+    color: black;
+    border-radius: 30px;
+
+    display: flex;
+    flex-direction: column;  
+}
+
+.subsystem--icon{
+    align-self: self-start;
+    margin:15px;
+    padding:10px;
+    background-color: white;
+    border-radius: 30px;
+}
