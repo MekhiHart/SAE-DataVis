@@ -2,13 +2,14 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr .1fr;
     padding-left: 30px;
-    background-color: black;
-    color: yellow;
-    height: 60px;
-
+    background-color: white;
+    color: black;
+    height: 80px;
+    text-decoration: none;
     justify-content: space-around;
     align-items: center; 
     margin-top: 30px;
+    border-radius: 15px;
     
 }
 
@@ -17,7 +18,7 @@
 }
 
 #navbar{
-    background-color: #D0C5C5;
+    background-color: #f1f1fc;
     height: 90px;
     padding-left: 60px;
 
