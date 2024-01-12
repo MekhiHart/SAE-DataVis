@@ -5,7 +5,7 @@ export default function HomeView(){
     const {raceFolders} = useGetRaceFolders()
     return(
         <>
-            {raceFolders.map((obj) => obj && <RaceLog RaceLogData={obj}/>)}
+            {raceFolders.map((obj) => obj && <RaceLog key={obj.id} RaceLogData={obj}/>)}
         </>
     )
 }
