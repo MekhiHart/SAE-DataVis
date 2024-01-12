@@ -20,10 +20,18 @@
 #navbar{
     background-color: #f1f1fc;
     height: 90px;
-    padding-left: 60px;
-
     display: flex;
     align-items: center;
+}
+
+#footer{
+    background-color: #f1f1fc;
+    height: 90px;
+    margin: 20px ;
+
+    display: flex;
+    align-items: center; 
+    justify-content: center;
 }
 
 #website--icon{
@@ -35,3 +43,4 @@
     color: black;
     margin-left: 20px;
 }
+
