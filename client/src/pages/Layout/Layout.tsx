@@ -1,8 +1,10 @@
 import { Outlet } from "react-router-dom"
+import NavBar from "./components/NavBar"
+
 export default function Layout(){
     return (
         <div >
-            <div style={{backgroundColor:"aqua"}}>Nav Bar</div>
+            <NavBar/>
 
             <div id="layout">
                 <Outlet/>

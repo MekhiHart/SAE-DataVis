@@ -15,3 +15,22 @@
 #layout{
     margin: 0 60px
 }
+
+#navbar{
+    background-color: #D0C5C5;
+    height: 90px;
+    padding-left: 60px;
+
+    display: flex;
+    align-items: center;
+}
+
+#website--icon{
+    width: 70px;
+    height: 70px;
+}
+
+#website--title{
+    color: black;
+    margin-left: 20px;
+}
