@@ -1,4 +1,4 @@
-import HomeView from './views/Home_View/HomeView'
+import Home from './pages/Home/Home'
 import './App.css'
 
 function App() {
@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       <span style={{color:"black", paddingBottom: 30}}>Race Logs</span>
-      <HomeView/>
+      <Home/>
     </>
   )
 }

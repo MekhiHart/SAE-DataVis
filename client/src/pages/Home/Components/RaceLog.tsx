@@ -1,7 +1,7 @@
 import "../index.css"
 import { FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import { faChevronRight, faClock, faCalendar, faSignature, faHashtag} from "@fortawesome/free-solid-svg-icons"
-import { HomeViewNS } from "../../../namespace/HomeViewNS"
+import { HomeViewNS } from "../../../utils/namespace/HomeNS"
 
 
 export default function RaceLog(props:HomeViewNS.RaceLogProps){

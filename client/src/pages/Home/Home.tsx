@@ -1,5 +1,5 @@
 import RaceLog from "./Components/RaceLog";
-import { HomeViewNS } from "../../namespace/HomeViewNS";
+import { HomeViewNS } from "../../utils/namespace/HomeNS";
 import { useEffect, useState } from "react";
 export default function HomeView(){
 
