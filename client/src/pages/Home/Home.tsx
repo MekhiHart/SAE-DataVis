@@ -2,7 +2,7 @@ import { useGetRaceFolders } from "../../hooks/useGetRaceFolders";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faFileArrowUp } from "@fortawesome/free-solid-svg-icons";
 import RaceLogList from "./components/RaceLogList";
-export default function HomeView(){
+export default function Home(){
 
     const {raceFolders} = useGetRaceFolders()
     return(
