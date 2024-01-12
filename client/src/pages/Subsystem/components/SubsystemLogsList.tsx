@@ -6,12 +6,8 @@ interface SubsystemListProps{
 }
 export default function SubsystemLogsList(props: SubsystemListProps){
     const subsystemLogs = props.SubsystemListData
-    const test ={ 
-        subsystem: "Rear diff",
-        key: "key"
-    }
     return(
-        <div>
+        <div id="subsystem--log--list">
             {subsystemLogs.map(obj => <SubsystemCard key={obj.key} SubsystemCardData={obj}/>)}
         </div>
     )

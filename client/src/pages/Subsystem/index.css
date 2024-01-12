@@ -4,9 +4,10 @@
     background-color: #ddd9d1;
     color: black;
     border-radius: 30px;
-
+    margin: 30px 45px;
     display: flex;
     flex-direction: column;  
+    
 }
 
 .subsystem--icon{
@@ -15,4 +16,9 @@
     padding:10px;
     background-color: white;
     border-radius: 30px;
+}
+
+#subsystem--log--list{
+    display: flex;
+    flex-wrap: wrap
 }

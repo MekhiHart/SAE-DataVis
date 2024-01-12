@@ -11,7 +11,7 @@ export default function SubsystemCard(props:SubsystemCardProps){
     return(
         <div className="subsystem--card">
             <FontAwesomeIcon icon={faGear} size="2x" className="subsystem--icon"/>
-            <h3 style={{marginTop:"auto", alignSelf:"center"}}>{subsystem}</h3>
+            <h4 style={{marginTop:"auto", alignSelf:"center"}}>{subsystem}</h4>
         </div>
     )
 }
