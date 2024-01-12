@@ -1,6 +1,6 @@
 import { useGetRaceFolders } from "../../hooks/useGetRaceFolders";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUpload, faFileArrowUp } from "@fortawesome/free-solid-svg-icons";
+import {faFileArrowUp } from "@fortawesome/free-solid-svg-icons";
 import RaceLogList from "./components/RaceLogList";
 export default function HomeView(){
 

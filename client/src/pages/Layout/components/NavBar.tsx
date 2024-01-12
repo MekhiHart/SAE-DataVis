@@ -1,6 +1,4 @@
-import { faUpload } from "@fortawesome/free-solid-svg-icons"
 import saeIcon from "../../../assets/SAEIcon.png"
-import { FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 export default function NavBar(){
     return(
         <div id="navbar">
