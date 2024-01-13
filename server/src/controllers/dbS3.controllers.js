@@ -139,6 +139,18 @@ class DBS3Controller{
         // return jsonObject
     } // ParseObjectToJSON
 
+    async GetGraphJSON(bucketKey){
+        const params = {
+            Bucket: process.env.AWS_MAIN_BUCKET,
+            Key: bucketKey
+        }
+    
+        const data = await s3.getObject(params).promise()
+        const dataBuffer = data.Body
+        const jsonObject = JSON.parse(dataBuffer.toString("utf-8"))
+        return jsonObject
+    }
+
 } // DBS3Controller
 
 const dbs3Controller = new DBS3Controller()

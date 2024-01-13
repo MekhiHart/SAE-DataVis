@@ -22,4 +22,12 @@ router
         
     })
 
+router
+    .route("/getGraphJSON")
+    .post(async (req, res) => {
+        const bucketKey = req.body["bucket_key"]
+        const data = await dbs3Controller.GetGraphJSON(bucketKey)
+        res.json(data)
+    })
+
 module.exports = router
