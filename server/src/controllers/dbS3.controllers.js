@@ -130,7 +130,7 @@ class DBS3Controller{
         return res
     } // GetMetaData
 
-    //TODO called in Graph View
+    //* called in Graph View
     ParseObjectToJSON(data){
         console.log("data: ", data)
         const dataBuffer = data.Body
@@ -147,6 +147,8 @@ class DBS3Controller{
     
         const data = await s3.getObject(params).promise()
         const dataBuffer = data.Body
+        
+        // Converts data buffer to JSON formater
         const jsonObject = JSON.parse(dataBuffer.toString("utf-8"))
         return jsonObject
     }
