@@ -22,10 +22,11 @@ export default function Graph(){
                 body: JSON.stringify({bucket_key:bucketKey})
             })
             const json = await data.json()
-            console.log("data: ", json)
+            setGraphData(json)
         }
         fetchData()
     },[])
+    
     return(
         <div>
             <h2>{bucketKey}</h2>

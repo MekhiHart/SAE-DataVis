@@ -16,6 +16,19 @@ export namespace Interfaces{
         }
     }
 
+    export interface IGraph{
+        GraphData:{
+            subsystem: string,
+            data: {
+                id: number,
+                year: number,
+                userGain: number,
+                userLost: number
+
+            }[]
+        }
+    }
+
     
     
 }
