@@ -1,9 +1,9 @@
-import { HomeViewNS } from "../../utils/namespaces/Interfaces";
+import { Interfaces } from "../../utils/namespaces/Interfaces";
 
 class DBS3Controller{
-    async GetRaceFolders(): Promise<HomeViewNS.RaceLog["RaceLogData"][]>{
+    async GetRaceFolders(): Promise<Interfaces.IRaceLog["RaceLogData"][]>{
         const data = await fetch("http://localhost:8000/api/getAllRaces")
-        const res: HomeViewNS.RaceLog["RaceLogData"][] = await data.json()
+        const res: Interfaces.IRaceLog["RaceLogData"][] = await data.json()
         return res
     }
 }

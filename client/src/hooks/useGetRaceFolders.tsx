@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react"
-import { HomeViewNS } from "../utils/namespaces/Interfaces";
+import { Interfaces } from "../utils/namespaces/Interfaces";
 import { dbs3Controller } from "../services/api/dbs3Controller";
 
 export const useGetRaceFolders = () => {
-    const [raceFolders, setRaceFolders] = useState<HomeViewNS.RaceLog["RaceLogData"][]>([])
+    const [raceFolders, setRaceFolders] = useState<Interfaces.IRaceLog["RaceLogData"][]>([])
     useEffect(() => {
         const fetchData = async () =>{
             const data = await dbs3Controller.GetRaceFolders()
