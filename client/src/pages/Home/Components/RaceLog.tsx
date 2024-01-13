@@ -2,11 +2,11 @@ import "../index.css"
 import {Link} from "react-router-dom"
 import { FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import { faChevronRight, faClock, faCalendar, faSignature, faHashtag} from "@fortawesome/free-solid-svg-icons"
-import { HomeViewNS } from "../../../utils/namespaces/Interfaces"
+import { Interfaces} from "../../../utils/namespaces/Interfaces"
 import {IconDefinition} from "@fortawesome/free-solid-svg-icons"
 
 
-export default function RaceLog(props:HomeViewNS.RaceLog){
+export default function RaceLog(props:Interfaces.IRaceLog){
     const {id, name, date, duration, bucketKey} = props.RaceLogData
     return(
         <Link to="/subsystem" state={{bucketKey: bucketKey}} className="racelog" >
