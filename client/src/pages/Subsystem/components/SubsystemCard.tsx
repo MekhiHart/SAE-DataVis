@@ -2,17 +2,17 @@ import "../index.css"
 import { FontAwesomeIcon, FontAwesomeIconProps } from "@fortawesome/react-fontawesome"
 import { faGear, faPause, faBone, faCar, faSort, faGears, faCircleNotch } from "@fortawesome/free-solid-svg-icons"
 import { Interfaces } from "../../../utils/namespaces/Interfaces"
-
+import { Link } from "react-router-dom"
 interface SubsystemCardProps{
     SubsystemCardData: Interfaces.ISubsystem["SubsystemData"]
 }
 export default function SubsystemCard(props:SubsystemCardProps){
     const {subsystem, key} = props.SubsystemCardData
     return(
-        <div className="subsystem--card">
+        <Link to="/graph" state={{bucketKey: key}} className="subsystem--card">
             <SubsystemIcon subsystemName={subsystem} />
             <h4 className="subsystem--title">{subsystem}</h4>
-        </div>
+        </Link>
     )
 }
 
