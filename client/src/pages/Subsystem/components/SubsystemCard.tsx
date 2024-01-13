@@ -11,7 +11,7 @@ export default function SubsystemCard(props:SubsystemCardProps){
     return(
         <div className="subsystem--card">
             <SubsystemIcon subsystemName={subsystem} />
-            <h4 style={{marginTop:"auto", alignSelf:"center"}}>{subsystem}</h4>
+            <h4 className="subsystem--title">{subsystem}</h4>
         </div>
     )
 }

@@ -25,3 +25,8 @@
     display: flex;
     flex-wrap: wrap
 }
+
+.subsystem--title{
+    margin-top: auto;
+    align-self: center;
+}
