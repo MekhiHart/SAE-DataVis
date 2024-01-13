@@ -19,30 +19,30 @@ export default function SubsystemCard(props:SubsystemCardProps){
 function SubsystemIcon(props: {subsystemName: string}){
     let icon: FontAwesomeIconProps["icon"]
     switch (props.subsystemName){
-        case "brakes":
+        case "Brakes":
             icon = faPause
             break
-        case "chassis":
+        case "Chassis":
             icon = faBone
             break
 
-        case "drive train":
+        case "Drive train":
             icon = faCar
             break
         
-        case "front suspension":
+        case "Front suspension":
             icon = faSort
             break
         
-        case "rear diff":
+        case "Rear diff":
             icon = faGears
             break
 
-        case "rear suspension":
+        case "Rear suspension":
             icon = faSort
             break
 
-        case "steering":
+        case "Steering":
             icon = faCircleNotch
             break
         default:
