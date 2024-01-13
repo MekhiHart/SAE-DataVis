@@ -85,8 +85,12 @@ class DBS3Controller{
                 curr -= 1
             
             }
-
             const reverseArr = currWord.reverse()
+
+            // capitlizes subsytem"
+            let temp = reverseArr[0]
+            temp = temp.toUpperCase()
+            reverseArr[0] = temp
             return reverseArr.join("")
         }
 
