@@ -20,14 +20,30 @@ export namespace Interfaces{
         GraphData:{
             subsystem: string,
             data: {
-                id: number,
-                year: number,
+                id: string,
+                year: string,
                 userGain: number,
                 userLost: number
 
             }[]
         }
     }
+
+    export interface IChart {
+        ChartData:{
+            data: {
+                labels: string[];
+                datasets: {
+                  label: string;
+                  data: number[];
+                  backgroundColor: string[];
+                  borderColor: string,
+                  borderWidth: number
+                }[];
+              };
+        }
+
+      }
 
     
     

@@ -1,4 +1,6 @@
 // BarChart.tsx
+
+import { Interfaces } from '../../../utils/namespaces/Interfaces';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -11,18 +13,11 @@ import {
 
 import {Bar} from "react-chartjs-2"
 
-interface BarChartProps {
-  data: {
-    labels: string[];
-    datasets: {
-      label: string;
-      data: number[];
-      backgroundColor: string;
-    }[];
-  };
+interface ChartProps {
+  ChartData: Interfaces.IChart["ChartData"]
 }
 
-export default function Chart(){
+export default function Chart(props:ChartProps){
   ChartJS.register(
     CategoryScale,
     LinearScale,
@@ -31,6 +26,8 @@ export default function Chart(){
     Tooltip,
     Legend
   );
+
+
 
   return (
     <div>

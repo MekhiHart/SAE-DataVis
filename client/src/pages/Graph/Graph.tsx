@@ -1,12 +1,13 @@
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Chart from "./components/Chart";
+import { Interfaces } from "../../utils/namespaces/Interfaces";
 
 
 
 export default function Graph(){
     const location = useLocation()
-    const [graphData, setGraphData] = useState()
+    const [graphData, setGraphData] = useState<Interfaces.IChart["ChartData"]>()
     const bucketKey = location.state && location.state.bucketKey
 
 
@@ -24,16 +25,38 @@ export default function Graph(){
                 referrerPolicy: "no-referrer",
                 body: JSON.stringify({bucket_key:bucketKey})
             })
-            const json = await data.json()
-            setGraphData(json)
+            const json: Interfaces.IGraph["GraphData"] = await data.json()
+            console.log("json: ", json)
+            setGraphData({
+              data:{
+                labels: json.data.map(data => data.year),
+                datasets: [
+                  {
+                    label: "Users Gained",
+                    data: json.data.map((data) => data.userLost),
+                    backgroundColor: [
+                      "rgba(75,192,192,1)",
+                      "#ecf0f1",
+                      "#50AF95",
+                      "#f3ba2f",
+                      "#2a71d0",
+                    ],
+                    borderColor: "black",
+                    borderWidth: 2,
+                  },
+                ],
+              }
+
+            })
         }
         fetchData()
+        
     },[])
     
     return (
       <div>
         <h2>{bucketKey}</h2>
-        <Chart/>
+        {graphData && <Chart ChartData={graphData}/>}
       </div>
     );
 }
