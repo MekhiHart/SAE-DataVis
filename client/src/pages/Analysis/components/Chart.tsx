@@ -1,7 +1,8 @@
 // BarChart.tsx
 import "../index.css"
 import { Interfaces } from '../../../utils/namespaces/Interfaces';
-import { useState } from "react";
+import { SetStateAction } from "react";
+import { Dispatch } from "react";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -11,16 +12,21 @@ import {
   Tooltip,
   Legend,
   LineElement,
-  PointElement
+  PointElement,
+  ArcElement
 } from 'chart.js';
+import Dropdown from "react-bootstrap/Dropdown"
+import DropdownButton from 'react-bootstrap/DropdownButton';
 
-import {Bar, Line} from "react-chartjs-2"
+import {Bar, Line, Pie} from "react-chartjs-2"
 
 interface ChartProps {
-  ChartData: Interfaces.IChart["ChartData"]
+  ChartData: Interfaces.IChart["ChartData"],
+  analysisMode: AnalysisMode
+  setChartMode: Dispatch<SetStateAction<AnalysisMode>>
 }
 
-enum ChartMode {
+enum AnalysisMode {
   Line = 1,
   Bar,
   Pie
@@ -28,6 +34,7 @@ enum ChartMode {
 
 export default function Chart(props:ChartProps){
   ChartJS.register(
+    ArcElement,
     LineElement,
     PointElement,
     CategoryScale,
@@ -38,20 +45,29 @@ export default function Chart(props:ChartProps){
     Legend,
   )
 
-  const [chartMode, setChartMode] = useState<ChartMode>(ChartMode.Line)
   const data = props.ChartData
+  const chartMode = props.analysisMode
+  const setChartMode = props.setChartMode
 
   const Graph = () => {
     switch (chartMode){
-      case ChartMode.Line:
+      case AnalysisMode.Line:
         return <Line data={data.data}/>
-      case ChartMode.Bar:
+      case AnalysisMode.Bar:
         return <Bar data={data.data}/>
+      case AnalysisMode.Pie:
+        return <Pie data={data.data}/>
     }
   }
 
   return (
     <div id="chart--container">
+        <DropdownButton show={true} id="dropdown-basic-button" title="Dropdown button">
+          <Dropdown.Item onClick={() => setChartMode(AnalysisMode.Line)}>Line</Dropdown.Item>
+          <Dropdown.Item onClick={() => setChartMode(AnalysisMode.Bar)}>Bar</Dropdown.Item>
+          <Dropdown.Item onClick={() => setChartMode(AnalysisMode.Pie)}>Pie</Dropdown.Item>
+        </DropdownButton>
+
         <Graph />
     </div>
   );
