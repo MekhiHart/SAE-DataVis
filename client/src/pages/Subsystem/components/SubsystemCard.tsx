@@ -16,6 +16,7 @@ export default function SubsystemCard(props:SubsystemCardProps){
     )
 }
 
+// TODO Need to make this an ENUM type
 function SubsystemIcon(props: {subsystemName: string}){
     let icon: FontAwesomeIconProps["icon"]
     switch (props.subsystemName){

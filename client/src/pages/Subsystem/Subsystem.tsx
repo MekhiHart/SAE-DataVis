@@ -4,13 +4,13 @@ import SubsystemLogsList from "./components/SubsystemLogsList"
 export default function Subsytem(){
     const location = useLocation()
     const bucketKey = location.state && location.state.bucketKey
-    const {subsytemLogs, setSubsystemLogs} = useGetRaceFolderContents(bucketKey)
-
+    const {subsystemLogs, setSubsystemLogs} = useGetRaceFolderContents(bucketKey)
+    console.log("sub: ", subsystemLogs)
 
     return(
         <div>
             <h2>{bucketKey}</h2>
-            <SubsystemLogsList SubsystemListData={subsytemLogs} />
+            <SubsystemLogsList SubsystemListData={subsystemLogs} />
         </div>
     )
 }
