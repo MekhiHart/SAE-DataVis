@@ -1,5 +1,5 @@
 // BarChart.tsx
-
+import "../index.css"
 import { Interfaces } from '../../../utils/namespaces/Interfaces';
 import {
   Chart as ChartJS,
@@ -27,20 +27,12 @@ export default function Chart(props:ChartProps){
     Legend
   );
 
-
+  const data = props.ChartData
 
   return (
-    <div>
+    <div id="chart--container">
       <Bar
-        data={{
-          labels: ["A", "B", "C"],
-          datasets: [
-            {
-              label: "Revenue",
-              data: [200, 300, 400],
-            },
-          ],
-        }}
+        data={data.data}
       />
     </div>
   );

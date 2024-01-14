@@ -26,7 +26,7 @@ export default function Graph(){
                 body: JSON.stringify({bucket_key:bucketKey})
             })
             const json: Interfaces.IGraph["GraphData"] = await data.json()
-            console.log("json: ", json)
+
             setGraphData({
               data:{
                 labels: json.data.map(data => data.year),
@@ -54,7 +54,7 @@ export default function Graph(){
     },[])
     
     return (
-      <div>
+      <div style={{display:"flex", flexDirection:"column"}}>
         <h2>{bucketKey}</h2>
         {graphData && <Chart ChartData={graphData}/>}
       </div>
