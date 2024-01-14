@@ -5,7 +5,7 @@ import { Interfaces } from "../../utils/namespaces/Interfaces";
 
 
 
-export default function Graph(){
+export default function Analysis(){
     const location = useLocation()
     const [graphData, setGraphData] = useState<Interfaces.IChart["ChartData"]>()
     const bucketKey = location.state && location.state.bucketKey
@@ -25,7 +25,7 @@ export default function Graph(){
                 referrerPolicy: "no-referrer",
                 body: JSON.stringify({bucket_key:bucketKey})
             })
-            const json: Interfaces.IGraph["GraphData"] = await data.json()
+            const json: Interfaces.IAnalysis["AnalysisData"] = await data.json()
 
             setGraphData({
               data:{

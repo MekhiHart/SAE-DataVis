@@ -9,9 +9,11 @@ import {
   Title,
   Tooltip,
   Legend,
+  LineElement,
+  PointElement
 } from 'chart.js';
 
-import {Bar} from "react-chartjs-2"
+import {Bar, Line} from "react-chartjs-2"
 
 interface ChartProps {
   ChartData: Interfaces.IChart["ChartData"]
@@ -19,19 +21,21 @@ interface ChartProps {
 
 export default function Chart(props:ChartProps){
   ChartJS.register(
+    LineElement,
+    PointElement,
     CategoryScale,
     LinearScale,
     BarElement,
     Title,
     Tooltip,
-    Legend
+    Legend,
   );
 
   const data = props.ChartData
 
   return (
     <div id="chart--container">
-      <Bar
+      <Line
         data={data.data}
       />
     </div>

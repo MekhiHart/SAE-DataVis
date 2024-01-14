@@ -16,8 +16,8 @@ export namespace Interfaces{
         }
     }
 
-    export interface IGraph{
-        GraphData:{
+    export interface IAnalysis{
+        AnalysisData:{
             subsystem: string,
             data: {
                 id: string,

@@ -9,7 +9,7 @@ interface SubsystemCardProps{
 export default function SubsystemCard(props:SubsystemCardProps){
     const {subsystem, key} = props.SubsystemCardData
     return(
-        <Link to="/graph" state={{bucketKey: key}} className="subsystem--card">
+        <Link to="/analysis" state={{bucketKey: key}} className="subsystem--card">
             <SubsystemIcon subsystemName={subsystem} />
             <h4 className="subsystem--title">{subsystem}</h4>
         </Link>
