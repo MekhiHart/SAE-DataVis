@@ -23,6 +23,23 @@ class DBS3Controller{
         const json: Interfaces.ISubsystem["SubsystemData"][] = await data.json()
         return json
     }
+
+    async GetAnalysisData(bucketKey: string): Promise<Interfaces.IAnalysis["AnalysisData"]>{
+        const url = "http://localhost:8000/api/getGraphJSON/"
+        const data = await fetch(url,{
+            method: "POST",
+            mode: "cors",
+            credentials: "same-origin",
+            headers:{
+                "Content-Type": "application/json"
+            },
+            redirect: "follow",
+            referrerPolicy: "no-referrer",
+            body: JSON.stringify({bucket_key:bucketKey})
+        })
+        const json: Interfaces.IAnalysis["AnalysisData"] = await data.json()
+        return json
+    }
 }
 
 export const dbs3Controller = new DBS3Controller()

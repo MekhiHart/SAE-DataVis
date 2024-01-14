@@ -1,23 +1,12 @@
 import { useEffect, useState } from "react";
 import { Interfaces } from "../utils/namespaces/Interfaces";
+import { dbs3Controller } from "../services/api/dbs3Controller";
 
 export const useGetAnalysisData = (bucketKey: string) => {
     const [graphData, setGraphData] = useState<Interfaces.IChart["ChartData"]>()
     useEffect(() => {
         const fetchData = async () =>{
-            const url = "http://localhost:8000/api/getGraphJSON/"
-            const data = await fetch(url,{
-                method: "POST",
-                mode: "cors",
-                credentials: "same-origin",
-                headers:{
-                    "Content-Type": "application/json"
-                },
-                redirect: "follow",
-                referrerPolicy: "no-referrer",
-                body: JSON.stringify({bucket_key:bucketKey})
-            })
-            const json: Interfaces.IAnalysis["AnalysisData"] = await data.json()
+            const json = await dbs3Controller.GetAnalysisData(bucketKey)
 
             setGraphData({
               data:{
