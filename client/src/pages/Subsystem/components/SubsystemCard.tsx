@@ -10,7 +10,9 @@ export default function SubsystemCard(props:SubsystemCardProps){
     return(
         <Link to="/analysis" state={{bucketKey: key, subsystemName: subsystem}} className="subsystem--card shadows">
             <SubsystemIcon subsystemName={subsystem} />
-            <h4 className="subsystem--title">{subsystem}</h4>
+            <div className="subsystem--title--container">
+                <h4 className="subsystem--title">{subsystem}</h4>
+            </div>
         </Link>
     )
 }

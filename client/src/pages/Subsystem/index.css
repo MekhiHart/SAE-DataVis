@@ -28,7 +28,19 @@
     flex-wrap: wrap
 }
 
-.subsystem--title{
+.subsystem--title--container{
     margin-top: auto;
+    background-color: #e0e9f1;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+
+}
+
+.subsystem--title{
     align-self: center;
 }
