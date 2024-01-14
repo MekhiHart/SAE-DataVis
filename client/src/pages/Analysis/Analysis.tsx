@@ -3,12 +3,14 @@ import { useEffect, useState } from "react";
 import Chart from "./components/Chart";
 import { Interfaces } from "../../utils/namespaces/Interfaces";
 
+import SubsystemIcon from "../../components/SubsystemIcon";
 
 
 export default function Analysis(){
     const location = useLocation()
     const [graphData, setGraphData] = useState<Interfaces.IChart["ChartData"]>()
     const bucketKey = location.state && location.state.bucketKey
+    const subsystemName = location.state && location.state.subsystemName
 
 
     useEffect(() => {
@@ -55,7 +57,7 @@ export default function Analysis(){
     
     return (
       <div style={{display:"flex", flexDirection:"column"}}>
-        <h2>{bucketKey}</h2>
+        <h2 style={{display:"flex", alignContent:"center", alignItems:"center"}}> {<SubsystemIcon subsystemName={subsystemName}/>} {subsystemName}</h2>
         {graphData && <Chart ChartData={graphData}/>}
       </div>
     );
