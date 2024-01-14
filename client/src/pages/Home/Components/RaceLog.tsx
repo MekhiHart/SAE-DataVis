@@ -9,7 +9,7 @@ import {IconDefinition} from "@fortawesome/free-solid-svg-icons"
 export default function RaceLog(props:Interfaces.IRaceLog){
     const {id, name, date, duration, bucketKey} = props.RaceLogData
     return(
-        <Link to="/subsystem" state={{bucketKey: bucketKey}} className="racelog" >
+        <Link to="/subsystem" state={{bucketKey: bucketKey, raceName: name}} className="racelog" >
             <Detail icon={faHashtag} content={id} />
             <Detail icon={faSignature} content={name} />
             <Detail icon={faCalendar} content={date} />
