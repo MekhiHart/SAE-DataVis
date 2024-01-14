@@ -1,5 +1,8 @@
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
+import Chart from "./components/Chart";
+
+
 
 export default function Graph(){
     const location = useLocation()
@@ -27,9 +30,10 @@ export default function Graph(){
         fetchData()
     },[])
     
-    return(
-        <div>
-            <h2>{bucketKey}</h2>
-        </div>
-    )
+    return (
+      <div>
+        <h2>{bucketKey}</h2>
+        <Chart/>
+      </div>
+    );
 }
