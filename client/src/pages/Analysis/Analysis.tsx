@@ -25,9 +25,9 @@ export default function Analysis(){
       <div style={{display:"flex", flexDirection:"column"}}>
         <h2 style={{display:"flex", alignItems:"center"}}> {<SubsystemIcon subsystemName={subsystemName}/>} {subsystemName}</h2>
         <div>
-          <button onClick={() => setAnalysisMode(AnalysisMode.Line)}>Line</button>
-          <button onClick={() => setAnalysisMode(AnalysisMode.Bar)}>Bar</button>
-          <button onClick={() => setAnalysisMode(AnalysisMode.Pie)}>Pie</button>
+          <button className="custom--button shadows" onClick={() => setAnalysisMode(AnalysisMode.Line)}>Line</button>
+          <button className="custom--button shadows" onClick={() => setAnalysisMode(AnalysisMode.Bar)}>Bar</button>
+          <button className="custom--button shadows" onClick={() => setAnalysisMode(AnalysisMode.Pie)}>Pie</button>
         </div>
         {graphData && <Chart ChartData={graphData} analysisMode={analysisMode} setChartMode={setAnalysisMode}/>}
       </div>

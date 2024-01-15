@@ -6,3 +6,12 @@
     justify-items: center;
     
 }
+
+.custom--button{
+    width: 70px;
+    padding: 10px 15px;
+    margin-right: 10px;
+
+    border-width: 0;
+    background-color: #75c6e7
+}
