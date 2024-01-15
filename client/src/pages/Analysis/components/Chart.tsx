@@ -54,7 +54,7 @@ export default function Chart(props:ChartProps){
       case AnalysisMode.Bar:
         return <Bar data={data.data}/>
       case AnalysisMode.Pie:
-        return <Pie data={data.data}/>
+        return <Pie style={{maxHeight:"550px"}} data={data.data}/>
     }
   }
 
