@@ -15,8 +15,6 @@ import {
   PointElement,
   ArcElement
 } from 'chart.js';
-import Dropdown from "react-bootstrap/Dropdown"
-import DropdownButton from 'react-bootstrap/DropdownButton';
 
 import {Bar, Line, Pie} from "react-chartjs-2"
 
@@ -62,12 +60,6 @@ export default function Chart(props:ChartProps){
 
   return (
     <div id="chart--container">
-        <DropdownButton show={true} id="dropdown-basic-button" title="Dropdown button">
-          <Dropdown.Item onClick={() => setChartMode(AnalysisMode.Line)}>Line</Dropdown.Item>
-          <Dropdown.Item onClick={() => setChartMode(AnalysisMode.Bar)}>Bar</Dropdown.Item>
-          <Dropdown.Item onClick={() => setChartMode(AnalysisMode.Pie)}>Pie</Dropdown.Item>
-        </DropdownButton>
-
         <Graph />
     </div>
   );

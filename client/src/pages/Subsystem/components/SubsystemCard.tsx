@@ -9,7 +9,7 @@ export default function SubsystemCard(props:SubsystemCardProps){
     const {subsystem, key} = props.SubsystemCardData
     return(
         <Link to="/analysis" state={{bucketKey: key, subsystemName: subsystem}} className="subsystem--card shadows">
-            <SubsystemIcon subsystemName={subsystem} />
+            <span style={{marginLeft:"15px"}}><SubsystemIcon subsystemName={subsystem} /></span>
             <div className="subsystem--title--container">
                 <h4 className="subsystem--title">{subsystem}</h4>
             </div>

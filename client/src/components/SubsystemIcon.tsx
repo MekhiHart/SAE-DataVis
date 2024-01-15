@@ -1,6 +1,6 @@
 import { FontAwesomeIcon, FontAwesomeIconProps } from "@fortawesome/react-fontawesome"
 import { faGear, faPause, faBone, faCar, faSort, faGears, faCircleNotch, faDharmachakra } from "@fortawesome/free-solid-svg-icons"
-
+import "./index.css"
 // TODO Need to make this an ENUM type
 export default function SubsystemIcon(props: {subsystemName: string}){
     let icon: FontAwesomeIconProps["icon"]
