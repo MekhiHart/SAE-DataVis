@@ -1,5 +1,5 @@
 import { FontAwesomeIcon, FontAwesomeIconProps } from "@fortawesome/react-fontawesome"
-import { faGear, faPause, faBone, faCar, faSort, faGears, faCircleNotch, faDharmachakra } from "@fortawesome/free-solid-svg-icons"
+import { faGear, faPause, faCar, faDownLeftAndUpRightToCenter, faGears, faWrench, faDharmachakra, faA } from "@fortawesome/free-solid-svg-icons"
 import "./index.css"
 // TODO Need to make this an ENUM type
 export default function SubsystemIcon(props: {subsystemName: string}){
@@ -9,7 +9,7 @@ export default function SubsystemIcon(props: {subsystemName: string}){
             icon = faPause
             break
         case "Chassis":
-            icon = faBone
+            icon = faWrench
             break
 
         case "Drive train":
@@ -17,7 +17,7 @@ export default function SubsystemIcon(props: {subsystemName: string}){
             break
         
         case "Front suspension":
-            icon = faSort
+            icon = faDownLeftAndUpRightToCenter
             break
         
         case "Rear diff":
@@ -25,7 +25,7 @@ export default function SubsystemIcon(props: {subsystemName: string}){
             break
 
         case "Rear suspension":
-            icon = faSort
+            icon = faDownLeftAndUpRightToCenter
             break
 
         case "Steering":
