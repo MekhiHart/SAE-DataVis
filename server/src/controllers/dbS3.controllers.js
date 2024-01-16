@@ -102,10 +102,22 @@ class DBS3Controller{
             Bucket: bucketName,
             Prefix: prefix,
         };
+        
+        const data = await s3.listObjectsV2(params, (err, data) => {
+            if (err){
+                return new Error(err.message)
+            } return data
+        }).promise()
 
-        const dataArr = await s3.listObjectsV2(params).promise()
 
-        const contents = dataArr.Contents.filter(content => content.Key !== prefix)
+        if (data instanceof Error){
+            return data
+        }
+
+        // removes the folder that contains the contents
+        const contents = data.Contents.filter(content => content.Key !== prefix)
+
+        // TODO Make a subsystem model from 'res'
         const res = contents.map(content => ({
             subsystem: parseSubsystem(content.Key),
             key: content.Key
