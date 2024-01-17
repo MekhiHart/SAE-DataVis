@@ -2,7 +2,7 @@ import { Interfaces } from "../../../utils/namespaces/Interfaces"
 import RaceLog from "./RaceLog"
 
 interface RaceLogListProps{
-    RaceLogListData: Interfaces.IRaceLog["RaceLogData"][]
+    RaceLogListData: Interfaces.IRaceLog[]
 }
 export default function RaceLogList(props:RaceLogListProps){
     const raceFolders = props.RaceLogListData

@@ -5,8 +5,11 @@ import { faChevronRight, faClock, faCalendar, faSignature, faHashtag, faFlagChec
 import { Interfaces} from "../../../utils/namespaces/Interfaces"
 import {IconDefinition} from "@fortawesome/free-solid-svg-icons"
 
+interface RaceLogProps{
+    RaceLogData: Interfaces.IRaceLog
+}
 
-export default function RaceLog(props:Interfaces.IRaceLog){
+export default function RaceLog(props:RaceLogProps){
     const {id, name, date, duration, bucketKey} = props.RaceLogData
     return(
         <Link to="/subsystem" state={{bucketKey: bucketKey, raceName: name}} className="racelog shadows" >
