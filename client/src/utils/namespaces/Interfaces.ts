@@ -8,10 +8,8 @@ export namespace Interfaces{
     }
 
     export interface ISubsystem{
-        SubsystemData:{
-            subsystem: string,
-            key: string
-        }
+        subsystem: string,
+        key: string
     }
 
     export interface IAnalysis{

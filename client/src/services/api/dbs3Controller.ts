@@ -1,13 +1,13 @@
 import { Interfaces } from "../../utils/namespaces/Interfaces";
 
 class DBS3Controller{
-    async GetRaceFolders(): Promise<Interfaces.IRaceLog["RaceLogData"][]>{
+    async GetRaceFolders(): Promise<Interfaces.IRaceLog[]>{
         const data = await fetch("http://localhost:8000/api/getAllRaces")
-        const res: Interfaces.IRaceLog["RaceLogData"][] = await data.json()
+        const res: Interfaces.IRaceLog[] = await data.json()
         return res
     }
 
-    async GetRaceFolderContents(bucketKey: string): Promise<Interfaces.ISubsystem["SubsystemData"][]>{
+    async GetRaceFolderContents(bucketKey: string): Promise<Interfaces.ISubsystem[]>{
         const url = "http://localhost:8000/api/getRaceFolderContents/"
         const data = await fetch(url, {
             method: "POST",
@@ -20,7 +20,7 @@ class DBS3Controller{
             referrerPolicy: "no-referrer",
             body: JSON.stringify({bucket_key:bucketKey})
         })
-        const json: Interfaces.ISubsystem["SubsystemData"][] = await data.json()
+        const json: Interfaces.ISubsystem[] = await data.json()
         return json
     }
 
