@@ -3,7 +3,7 @@ import SubsystemIcon from "../../../components/SubsystemIcon"
 import { Interfaces } from "../../../utils/namespaces/Interfaces"
 import { Link } from "react-router-dom"
 interface SubsystemCardProps{
-    SubsystemCardData: Interfaces.ISubsystem["SubsystemData"]
+    SubsystemCardData: Interfaces.ISubsystem
 }
 export default function SubsystemCard(props:SubsystemCardProps){
     const {subsystem, key} = props.SubsystemCardData

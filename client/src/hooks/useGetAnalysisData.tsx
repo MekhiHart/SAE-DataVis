@@ -3,7 +3,7 @@ import { Interfaces } from "../utils/namespaces/Interfaces";
 import { dbs3Controller } from "../services/api/dbs3Controller";
 
 export const useGetAnalysisData = (bucketKey: string) => {
-    const [graphData, setGraphData] = useState<Interfaces.IChart["ChartData"]>()
+    const [graphData, setGraphData] = useState<Interfaces.IChart>()
     useEffect(() => {
         const fetchData = async () =>{
             const json = await dbs3Controller.GetAnalysisData(bucketKey)

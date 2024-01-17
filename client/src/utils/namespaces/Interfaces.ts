@@ -8,27 +8,22 @@ export namespace Interfaces{
     }
 
     export interface ISubsystem{
-        SubsystemData:{
-            subsystem: string,
-            key: string
-        }
+        subsystem: string,
+        key: string
     }
 
     export interface IAnalysis{
-        AnalysisData:{
-            subsystem: string,
-            data: {
-                id: string,
-                year: string,
-                userGain: number,
-                userLost: number
+        subsystem: string,
+        data: {
+            id: string,
+            year: string,
+            userGain: number,
+            userLost: number
 
-            }[]
-        }
+        }[]
     }
 
     export interface IChart {
-        ChartData:{
             data: {
                 labels: string[];
                 datasets: {
@@ -39,8 +34,6 @@ export namespace Interfaces{
                   borderWidth: number
                 }[];
               };
-        }
-
       }
 
     

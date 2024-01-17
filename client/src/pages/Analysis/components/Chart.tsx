@@ -19,7 +19,7 @@ import {
 import {Bar, Line, Pie} from "react-chartjs-2"
 
 interface ChartProps {
-  ChartData: Interfaces.IChart["ChartData"],
+  ChartData: Interfaces.IChart,
   analysisMode: AnalysisMode
   setChartMode: Dispatch<SetStateAction<AnalysisMode>>
 }

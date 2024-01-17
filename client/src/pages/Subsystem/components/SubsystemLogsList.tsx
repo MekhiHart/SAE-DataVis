@@ -2,7 +2,7 @@ import { Interfaces } from "../../../utils/namespaces/Interfaces";
 import SubsystemCard from "./SubsystemCard";
 
 interface SubsystemListProps{
-    SubsystemListData: Interfaces.ISubsystem["SubsystemData"][]
+    SubsystemListData: Interfaces.ISubsystem[]
 }
 export default function SubsystemLogsList(props: SubsystemListProps){
     const subsystemLogs = props.SubsystemListData
