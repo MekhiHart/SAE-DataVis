@@ -24,7 +24,7 @@ class DBS3Controller{
         return json
     }
 
-    async GetAnalysisData(bucketKey: string): Promise<Interfaces.IAnalysis["AnalysisData"]>{
+    async GetAnalysisData(bucketKey: string): Promise<Interfaces.IAnalysis>{
         const url = "http://localhost:8000/api/getGraphJSON/"
         const data = await fetch(url,{
             method: "POST",
@@ -37,7 +37,7 @@ class DBS3Controller{
             referrerPolicy: "no-referrer",
             body: JSON.stringify({bucket_key:bucketKey})
         })
-        const json: Interfaces.IAnalysis["AnalysisData"] = await data.json()
+        const json: Interfaces.IAnalysis = await data.json()
         return json
     }
 }
