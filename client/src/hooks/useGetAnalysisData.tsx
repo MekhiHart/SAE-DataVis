@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 import { Interfaces } from "../utils/namespaces/Interfaces";
 import { dbs3Controller } from "../services/api/dbs3Controller";
 
-export const useGetAnalysisData = (bucketKey: string) => {
+export const useGetAnalysisData = (bucketKey: string | undefined) => {
     const [graphData, setGraphData] = useState<Interfaces.IChart>()
     useEffect(() => {
         const fetchData = async () =>{
+          if (bucketKey){
             const json = await dbs3Controller.GetAnalysisData(bucketKey)
 
             setGraphData({
@@ -20,9 +21,14 @@ export const useGetAnalysisData = (bucketKey: string) => {
                   },
                 ],
               })
+          } else{
+            // TODO handle error here
+            // TODO I can navigate user to error page
+          }
+
         }
         fetchData()
         
-    },[bucketKey])
+    },[graphData])
     return {graphData, setGraphData}
 }

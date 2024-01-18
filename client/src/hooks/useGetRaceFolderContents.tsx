@@ -12,6 +12,7 @@ export const useGetRaceFolderContents = (bucketKey:string | undefined) =>{
                 setSubsystemLogs(json)
             } else{
                 // TODO handle error here
+                // TODO I can navigate user to error page
             }
 
         }
@@ -21,7 +22,7 @@ export const useGetRaceFolderContents = (bucketKey:string | undefined) =>{
         
         
     
-    },[bucketKey])
+    },[subsystemLogs])
 
     return {subsystemLogs, setSubsystemLogs}
 }

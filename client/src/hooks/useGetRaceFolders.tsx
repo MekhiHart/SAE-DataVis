@@ -11,7 +11,7 @@ export const useGetRaceFolders = () => {
         }
 
         fetchData()
-    },[])
+    },[raceFolders])
     return {
         raceFolders
     }
