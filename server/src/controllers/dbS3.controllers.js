@@ -57,7 +57,20 @@ class DBS3Controller{
         };
         
         // Call S3 to obtain a list of the objects in the bucket
-        const dataArr = await s3.listObjectsV2(bucketParams).promise()
+        // dataArr can contain an error
+        const dataArr = await s3.listObjectsV2(bucketParams, (err, data) => {
+            if (err){
+                return new Error(err.message)
+            }
+            else{
+                return data
+            }
+        }).promise() 
+
+        if (dataArr instanceof Error){
+            return dataArr
+        }
+
         const foldersArr = dataArr.CommonPrefixes.map(folder => folder.Prefix)
         return foldersArr
     } // GetRaceFolders
@@ -114,8 +127,8 @@ class DBS3Controller{
             return data
         }
 
-        // removes the folder that contains the contents
-        const contents = data.Contents.filter(content => content.Key !== prefix)
+        // removes the folder from the contents
+        const contents = data.Contents.filter(content => content.Key !== prefix) 
 
         // TODO Make a subsystem model from 'res'
         const res = contents.map(content => ({
