@@ -12,28 +12,27 @@ export namespace Interfaces{
         key: string
     }
 
-    export interface IAnalysis{
+    export interface IAnalysisJSON{
         subsystem: string,
+        mainLabel: string,
         data: {
             id: string,
-            year: string,
-            userGain: number,
-            userLost: number
+            horizontalLabel: string,
+            value: number
 
         }[]
     }
 
     export interface IChart {
-            data: {
-                labels: string[];
-                datasets: {
-                  label: string;
-                  data: number[];
-                  backgroundColor: string[];
-                  borderColor: string,
-                  borderWidth: number
-                }[];
-              };
+        labels: string[];
+        datasets: {
+            label: string;
+            data: number[];
+            backgroundColor: string;
+            borderColor: string,
+            borderWidth: number
+        }[];
+
       }
 
     
