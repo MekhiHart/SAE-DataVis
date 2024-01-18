@@ -46,8 +46,6 @@ export default function Chart(props:ChartProps){
   const data = props.ChartData
   const chartMode = props.analysisMode
 
-  console.log("data: ", data)
-
   const Graph = () => {
     switch (chartMode){
       case AnalysisMode.Line:
