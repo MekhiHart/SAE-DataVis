@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { Interfaces } from "../utils/namespaces/Interfaces";
 import { dbs3Controller } from "../services/api/dbs3Controller";
+import { useNavigate } from "react-router-dom";
 
 export const useGetAnalysisData = (bucketKey: string | undefined) => {
     const [graphData, setGraphData] = useState<Interfaces.IChart>()
+    const navigate = useNavigate()
     useEffect(() => {
         const fetchData = async () =>{
           if (bucketKey){
@@ -22,8 +24,10 @@ export const useGetAnalysisData = (bucketKey: string | undefined) => {
                 ],
               })
           } else{
-            // TODO handle error here
-            // TODO I can navigate user to error page
+            // handles error
+            // navigates to no page
+            navigate("/*")
+            
           }
 
         }
