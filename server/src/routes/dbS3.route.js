@@ -3,7 +3,7 @@ const router = express.Router();
 
 const dbs3Controller = require("../controllers/dbS3.controllers")
 
-// /api/getAllRaces
+// api/getAllRaces
 router
     .route("/getAllRaces")
     .get(async (req, res) => {
@@ -17,37 +17,47 @@ router
         }
     }) 
 
+// api/getRaceFolderContents
 router
     .route("/getRaceFolderContents")
     .post(async (req, res) => {
 
-        if ("bucket_key" in req.body){
+        if (!("bucket_key" in req.body)){
+            res.send("Request body not found")
+
+        } else{
+            // if user types in url path in search bar
             const bucketKey = req.body["bucket_key"] // error checking if property 'bucket_key' does not exist
 
             try{
                 const data = await dbs3Controller.GetRaceFolderContents(bucketKey) // TODO error checking if using AWS API fails
                 res.json(data)
+
             } catch(err){
                 // TODO need to implement a better way to handle error
                 res.json(err)
             } // catch
-
-        } 
-        
-        // if user types in url path in search bar
-        else{
-            res.send("Request body not found")
         } // else
 
         
     }) 
 
+// api/getGraphJSON
 router
     .route("/getGraphJSON")
     .post(async (req, res) => {
-        const bucketKey = req.body["bucket_key"]
-        const data = await dbs3Controller.GetGraphJSON(bucketKey)
-        res.json(data)
+        if (!("bucket_key"  in req.body)){
+            res.send("Request body missing")
+        } else{
+            try{
+                const bucketKey = req.body["bucket_key"]
+                const data = await dbs3Controller.GetGraphJSON(bucketKey)
+                res.json(data)
+            } catch (err){
+                res.json(err)
+            } // catch
+        } // else
+
     })
 
 module.exports = router

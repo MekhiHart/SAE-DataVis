@@ -170,7 +170,16 @@ class DBS3Controller{
             Key: bucketKey
         }
     
-        const data = await s3.getObject(params).promise()
+        const data = await s3.getObject(params, (err, data) => {
+            if (err){
+                return new Error(err.message)
+            } 
+            return data
+        }).promise()
+        if (data instanceof Error){
+            return data
+        }
+        
         const dataBuffer = data.Body
         
         // Converts data buffer to JSON formater
