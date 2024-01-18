@@ -28,9 +28,8 @@ router
         } else{
             // if user types in url path in search bar
             const bucketKey = req.body["bucket_key"] // error checking if property 'bucket_key' does not exist
-
             try{
-                const data = await dbs3Controller.GetRaceFolderContents(bucketKey) // TODO error checking if using AWS API fails
+                const data = await dbs3Controller.GetRaceFolderContents(bucketKey)
                 res.json(data)
 
             } catch(err){

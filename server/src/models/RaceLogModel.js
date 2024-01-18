@@ -1,4 +1,4 @@
-class RaceModel{
+class RaceLogModel{
     constructor(metaDataObj){
         this.id = metaDataObj["x-amz-meta-id"]
         this.name = metaDataObj["x-amz-meta-name"]
@@ -8,4 +8,4 @@ class RaceModel{
     }
 }
 
-module.exports = RaceModel
+module.exports = RaceLogModel
