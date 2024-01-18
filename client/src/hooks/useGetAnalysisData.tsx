@@ -33,6 +33,6 @@ export const useGetAnalysisData = (bucketKey: string | undefined) => {
         }
         fetchData()
         
-    },[graphData])
+    },[])
     return {graphData, setGraphData}
 }

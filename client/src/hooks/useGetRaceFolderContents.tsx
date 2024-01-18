@@ -28,7 +28,7 @@ export const useGetRaceFolderContents = (bucketKey:string | undefined) =>{
         
         
     
-    },[subsystemLogs])
+    },[])
 
     return {subsystemLogs, setSubsystemLogs}
 }
