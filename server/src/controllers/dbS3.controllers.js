@@ -152,13 +152,6 @@ class DBS3Controller{
         return res
     } // GetMetaData
 
-    //* called in Graph View
-    ParseObjectToJSON(data){
-        console.log("data: ", data)
-        const dataBuffer = data.Body
-        const bufferString = dataBuffer.toString("utf8")
-        // return jsonObject
-    } // ParseObjectToJSON
 
     async GetGraphJSON(bucketKey){
         const params = {
