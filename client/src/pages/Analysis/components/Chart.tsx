@@ -45,7 +45,6 @@ export default function Chart(props:ChartProps){
 
   const data = props.ChartData
   const chartMode = props.analysisMode
-  const setChartMode = props.setChartMode
 
   console.log("data: ", data)
 
