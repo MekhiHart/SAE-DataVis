@@ -6,6 +6,7 @@ const dotenv = require('dotenv');
 
 const RaceLogModel = require("../models/RaceLogModel")
 const SubsystemModel = require("../models/SubsystemModel")
+const AnalysisModel = require("../models/AnalysisModel")
 
 
 // Construct the absolute path to the .env file
@@ -156,7 +157,6 @@ class DBS3Controller{
         console.log("data: ", data)
         const dataBuffer = data.Body
         const bufferString = dataBuffer.toString("utf8")
-        console.log("buffer: ", bufferString)
         // return jsonObject
     } // ParseObjectToJSON
 
@@ -176,10 +176,12 @@ class DBS3Controller{
             return data
         }
         
+        // grabs JSON data in a form of a buffer
         const dataBuffer = data.Body
         
-        // Converts data buffer to JSON formater
-        const jsonObject = JSON.parse(dataBuffer.toString("utf-8"))
+        // Converts data buffer into object format
+        const jsonObject = new AnalysisModel(JSON.parse(dataBuffer.toString("utf-8")))
+        
         return jsonObject
     }
 
