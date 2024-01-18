@@ -17,7 +17,7 @@ export default function Analysis(){
     
     const bucketKey = location.state && location.state.bucketKey
     const subsystemName = location.state && location.state.subsystemName
-    const {graphData, setGraphData} = useGetAnalysisData(bucketKey)
+    const {graphData} = useGetAnalysisData(bucketKey)
     const [analysisMode, setAnalysisMode] = useState<AnalysisMode>(AnalysisMode.Line)
 
     

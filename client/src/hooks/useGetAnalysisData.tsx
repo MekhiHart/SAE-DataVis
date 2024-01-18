@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import { Interfaces } from "../utils/namespaces/Interfaces";
 import { dbs3Controller } from "../services/api/dbs3Controller";
+import { useNavigate } from "react-router-dom";
 
-export const useGetAnalysisData = (bucketKey: string) => {
+export const useGetAnalysisData = (bucketKey: string | undefined) => {
     const [graphData, setGraphData] = useState<Interfaces.IChart>()
+    const navigate = useNavigate()
     useEffect(() => {
         const fetchData = async () =>{
+          if (bucketKey){
             const json = await dbs3Controller.GetAnalysisData(bucketKey)
 
             setGraphData({
@@ -20,9 +23,16 @@ export const useGetAnalysisData = (bucketKey: string) => {
                   },
                 ],
               })
+          } else{
+            // handles error
+            // navigates to no page
+            navigate("/*")
+            
+          }
+
         }
         fetchData()
         
-    },[bucketKey])
+    },[])
     return {graphData, setGraphData}
 }

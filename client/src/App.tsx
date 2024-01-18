@@ -4,6 +4,7 @@ import Layout from "./pages/Layout/Layout";
 import Home from './pages/Home/Home'
 import Subsystem from "./pages/Subsystem/Subsystem";
 import Analysis from "./pages/Analysis/Analysis";
+import NoPage from "./pages/NoPage/NoPage";
 
 
 
@@ -16,6 +17,7 @@ function App() {
           <Route index element={<Home/>} />
           <Route path="subsystem" element={<Subsystem/>}/>
           <Route path="analysis" element={<Analysis/>}/>
+          <Route path="*" element={<NoPage/>} />
         </Route>
       </Routes>
     </BrowserRouter>
