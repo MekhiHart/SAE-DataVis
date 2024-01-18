@@ -9,26 +9,17 @@ export const useGetAnalysisData = (bucketKey: string) => {
             const json = await dbs3Controller.GetAnalysisData(bucketKey)
 
             setGraphData({
-              data:{
-                labels: json.data.map(data => data.year),
+                labels: json.data.map(data => data.horizontalLabel),
                 datasets: [
                   {
-                    label: "Users Gained",
-                    data: json.data.map((data) => data.userLost),
-                    backgroundColor: [
-                      "rgba(75,192,192,1)",
-                      "#ecf0f1",
-                      "#50AF95",
-                      "#f3ba2f",
-                      "#2a71d0",
-                    ],
-                    borderColor: "black",
+                    label: json.mainLabel,
+                    data: json.data.map((data) => data.value),
+                    backgroundColor: 'rgb(75, 192, 192)',
+                    borderColor: 'rgb(75, 192, 192)',
                     borderWidth: 2,
                   },
                 ],
-              }
-
-            })
+              })
         }
         fetchData()
         

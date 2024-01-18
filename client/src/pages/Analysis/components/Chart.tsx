@@ -47,14 +47,16 @@ export default function Chart(props:ChartProps){
   const chartMode = props.analysisMode
   const setChartMode = props.setChartMode
 
+  console.log("data: ", data)
+
   const Graph = () => {
     switch (chartMode){
       case AnalysisMode.Line:
-        return <Line data={data.data}/>
+        return <Line data={data}/>
       case AnalysisMode.Bar:
-        return <Bar data={data.data}/>
+        return <Bar data={data}/>
       case AnalysisMode.Pie:
-        return <Pie style={{maxHeight:"550px"}} data={data.data}/>
+        return <Pie style={{maxHeight:"550px"}} data={data}/>
     }
   }
 
