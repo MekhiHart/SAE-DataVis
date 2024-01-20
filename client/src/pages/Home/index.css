@@ -3,21 +3,29 @@
     grid-template-columns: 1fr 1fr 1fr 1fr .1fr;
     padding-left: 30px;
     color: black;
-    height: 90px;
+    height: 80px;
     text-decoration: none;
     justify-content: space-around;
     align-items: center; 
-
     border-top: 1px solid black;
     border-bottom: 1px solid black;
-    
+}
+
+.racelog:hover{
+    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+    opacity: 50%;
+}
+
+.racelog--container{
+    border-radius: 20px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
 
 .racelog--header{
     display: flex;
-    background-color: yellow;
-    padding-left: 30px;
+    background-color: #e0e9f1;
+    padding: 15px 15px 15px 30px;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
 
@@ -29,7 +37,9 @@
     padding-left: 30px;
     color: black;
     justify-content: space-around;
-    background-color: yellow;
+    background-color: #e0e9f1;
+    height: 60px;
+    align-content: center;
 
     border-top: 1px solid black;
     border-bottom: 1px solid black;
@@ -43,7 +53,6 @@
 }
 
 #race--history--body{ 
-    background-color: aquamarine; 
     overflow-y: auto; 
     height: 55vh; 
 

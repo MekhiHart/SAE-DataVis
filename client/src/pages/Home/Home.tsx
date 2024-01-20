@@ -14,8 +14,8 @@ export default function Home(){
 
             <div className="racelog--container">
                 <div className="racelog--header">
-                    <h3>Search for Race</h3>
-                    <h3 style={{marginLeft:"auto", paddingRight:"25px"}}>Name</h3>
+                    <h4>Search for Race</h4>
+                    <h4 style={{marginLeft:"auto", paddingRight:"25px"}}>Name</h4>
                 </div>
 
                 <div className="racelog--description">
