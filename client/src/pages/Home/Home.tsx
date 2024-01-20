@@ -8,19 +8,43 @@ export default function Home(){
     return(
         <>
             <div style={{display:"flex"}}>
-                <h2 style={{color:"black"}}>Race Logs</h2>
+                <h2 style={{color:"black"}}>Race History</h2>
                 <Upload/>
             </div>
-            <RaceLogList RaceLogListData={raceFolders} />
+
+            <div>
+                <div style={{display:"flex", backgroundColor:"yellow", paddingLeft:"30px"}}>
+                    <h3>Search for Race</h3>
+                    <h3 style={{marginLeft:"auto"}}>Name</h3>
+                </div>
+
+                <div className="racelog--header">
+                    <h4>ID</h4>
+                    <h4>Name</h4>
+                    <h4>Date</h4>
+                    <h4>Duration</h4>
+                </div>
+
+                <div id="race--history--body">
+                    <RaceLogList RaceLogListData={raceFolders} />
+                </div>
+            </div>
+
         </>
     )
 }
 
+interface RaceHistoryProps{
+    children: React.ReactNode
+}
+
+
 const Upload = () =>{
     return(
     <div style={{display:"flex", color:"black", alignItems:"center", marginLeft:"auto"}}>
-        <FontAwesomeIcon size="2x" style={{color:"black", marginRight:"10", scale:"75%"}} icon={faFileArrowUp} />
         <h4>Upload Race</h4>
+        <FontAwesomeIcon size="2x" style={{color:"black", marginLeft:"10", scale:"75%"}} icon={faFileArrowUp} />
+
     </div>
     )
 
