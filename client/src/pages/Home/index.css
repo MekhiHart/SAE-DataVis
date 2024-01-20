@@ -7,8 +7,8 @@
     text-decoration: none;
     justify-content: space-around;
     align-items: center; 
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
 }
 
 .racelog:hover{
@@ -42,8 +42,8 @@
     height: 60px;
     align-content: center;
 
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
 }
 
 
@@ -64,7 +64,9 @@
 }
 
 #racelog--search{
-    padding-left: 10px;
+    
+    width: 400px;
+    padding-left: 13px;
     align-self: center;
     background-color: #e0e9f1;
     border-radius: 10px;
@@ -72,6 +74,7 @@
 }
 
 #racelog--search > input{
+    width: 80%;
     background-color: #e0e9f1;
     padding-left: 10px;
     border: 0px;
