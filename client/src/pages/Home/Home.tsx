@@ -12,13 +12,13 @@ export default function Home(){
                 <Upload/>
             </div>
 
-            <div>
-                <div style={{display:"flex", backgroundColor:"yellow", paddingLeft:"30px"}}>
+            <div className="racelog--container">
+                <div className="racelog--header">
                     <h3>Search for Race</h3>
-                    <h3 style={{marginLeft:"auto"}}>Name</h3>
+                    <h3 style={{marginLeft:"auto", paddingRight:"25px"}}>Name</h3>
                 </div>
 
-                <div className="racelog--header">
+                <div className="racelog--description">
                     <h4>ID</h4>
                     <h4>Name</h4>
                     <h4>Date</h4>
@@ -34,9 +34,6 @@ export default function Home(){
     )
 }
 
-interface RaceHistoryProps{
-    children: React.ReactNode
-}
 
 
 const Upload = () =>{
