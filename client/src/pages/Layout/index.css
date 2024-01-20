@@ -7,6 +7,11 @@ footer{
     justify-content: center;
 }
 
+#website--icon{
+    width: 70px;
+    height: 70px;
+}
+
 #layout{
     margin: 0 60px
 }
