@@ -7,8 +7,8 @@ export default function Home(){
     const {raceFolders} = useGetRaceFolders()
     return(
         <>
-            <div style={{display:"flex"}}>
-                <h2 style={{color:"black"}}>Race History</h2>
+            <div className="flex">
+                <h2>Race History</h2>
                 <Upload/>
             </div>
 
@@ -41,7 +41,6 @@ const Upload = () =>{
     <div style={{display:"flex", color:"black", alignItems:"center", marginLeft:"auto"}}>
         <h4>Upload Race</h4>
         <FontAwesomeIcon size="2x" style={{color:"black", marginLeft:"10", scale:"75%"}} icon={faFileArrowUp} />
-
     </div>
     )
 
