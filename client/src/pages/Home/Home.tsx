@@ -12,23 +12,23 @@ export default function Home(){
                 <Upload/>
             </div>
 
-            <div className="racelog--container">
-                <div className="racelog--header">
-                    <span id="racelog--search">
+            <div className="racehistory--container">
+                <div className="racehistory--header">
+                    <span id="racehistory--search">
                         <FontAwesomeIcon icon={faMagnifyingGlass}/>
                         <input type="text" placeholder="Search Race"/>
                     </span>
                     <h4 style={{marginLeft:"auto", paddingRight:"25px"}}>Name</h4>
                 </div>
 
-                <div className="racelog--description">
+                <div className="racehistory--description">
                     <h4>ID</h4>
                     <h4>Name</h4>
                     <h4>Date</h4>
                     <h4>Duration</h4>
                 </div>
 
-                <div id="race--history--body">
+                <div id="racehistory--body">
                     <RaceLogList RaceLogListData={raceFolders} />
                 </div>
             </div>

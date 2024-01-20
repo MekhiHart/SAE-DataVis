@@ -12,6 +12,11 @@ footer{
     height: 70px;
 }
 
+#website--title{
+    color: black;
+    margin-left: 20px;
+}
+
 #layout{
     margin: 0 60px
 }
