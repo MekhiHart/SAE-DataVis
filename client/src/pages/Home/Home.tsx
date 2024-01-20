@@ -1,6 +1,6 @@
 import { useGetRaceFolders } from "../../hooks/useGetRaceFolders";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faFileArrowUp } from "@fortawesome/free-solid-svg-icons";
+import {faFileArrowUp, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import RaceLogList from "./components/RaceLogList";
 export default function Home(){
 
@@ -14,7 +14,10 @@ export default function Home(){
 
             <div className="racelog--container">
                 <div className="racelog--header">
-                    <h4>Search for Race</h4>
+                    <span id="racelog--search">
+                        <FontAwesomeIcon icon={faMagnifyingGlass}/>
+                        <input type="text" placeholder="Search Race"/>
+                    </span>
                     <h4 style={{marginLeft:"auto", paddingRight:"25px"}}>Name</h4>
                 </div>
 

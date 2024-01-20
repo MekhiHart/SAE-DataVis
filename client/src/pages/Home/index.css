@@ -66,3 +66,25 @@
     margin-left: 20px;
 }
 
+#racelog--search{
+    padding-left: 10px;
+    align-self: center;
+    background-color: #BDD0E1;
+    border-radius: 20px;
+
+}
+
+#racelog--search > input{
+    background-color: #BDD0E1;
+    padding-left: 10px;
+    border: 0px;
+    height: 30px;
+
+    border-radius: 20px;
+    padding: 7px;
+
+}
+
+#racelog--search > input:focus{
+    outline: none
+}
