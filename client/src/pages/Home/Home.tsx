@@ -12,7 +12,7 @@ export default function Home(){
     return(
         <>
             <div className="flex">
-                <h2>Race History</h2>
+                <h3>Race History</h3>
                 <Upload/>
             </div>
 
