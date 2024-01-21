@@ -1,9 +1,9 @@
 import { useGetRaceFolders } from "../../hooks/useGetRaceFolders";
-import { FontAwesomeIcon, FontAwesomeIconProps } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faFileArrowUp, faMagnifyingGlass, faSort } from "@fortawesome/free-solid-svg-icons";
 import RaceLogList from "./components/RaceLogList";
 
-import { useEffect, useState } from "react";
+import {useState } from "react";
 export default function Home(){
 
     const {raceFolders, raceFoldermModifier} = useGetRaceFolders()
@@ -52,7 +52,7 @@ interface SortProps{
 }
 const Sort = (props: SortProps) => {
     return(
-        <div onClick={props.onClick} className="flex" style={{alignItems:"center"}}>
+        <div onClick={props.onClick} className="flex" style={{alignItems:"center", cursor:"pointer"}}>
             <h4 style={{paddingRight:"7px"}}>{props.name}</h4>
             <FontAwesomeIcon icon={faSort} size={"sm"} />
         </div>
