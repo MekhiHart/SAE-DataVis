@@ -9,7 +9,6 @@ export default function Home(){
     const {raceFolders} = useGetRaceFolders()
     const [search, setSearch] = useState("")
 
-    console.log("race folders: ", raceFolders)
     return(
         <>
             <div className="flex">
@@ -38,7 +37,7 @@ export default function Home(){
                         raceFolders.filter((raceFolder) => {
                             return search.toLowerCase() === "" 
                                 ? raceFolder 
-                                : raceFolder.name.toLowerCase().includes(search.toLocaleLowerCase())
+                                : raceFolder.name.toLowerCase().includes(search.toLowerCase())
                         })
                     } />
                 </div>
