@@ -3,12 +3,16 @@ import { FontAwesomeIcon, FontAwesomeIconProps } from "@fortawesome/react-fontaw
 import {faFileArrowUp, faMagnifyingGlass, faSort } from "@fortawesome/free-solid-svg-icons";
 import RaceLogList from "./components/RaceLogList";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 export default function Home(){
 
-    const {raceFolders} = useGetRaceFolders()
+    const {raceFolders, raceFoldermModifier} = useGetRaceFolders()
     const [search, setSearch] = useState("")
+    
 
+    useEffect(() => {
+        console.log("race: ", raceFolders)
+    },[raceFolders])
     return(
         <>
             <div className="flex">
@@ -23,11 +27,11 @@ export default function Home(){
                         <input value={search} onChange={(event) => setSearch(event.target.value) } type="text" placeholder="Search Race"/>
                     </span>
                 </div>
-
+                
                 <div className="racehistory--description">
                     <h4>ID</h4>
-                    <Sort name="Name" onClick={() => console.log("Sort Name")} />
-                    <Sort name="Date" onClick={() => console.log("Sort Date")}/>
+                    <Sort name="Name" onClick={() => raceFoldermModifier.SortByName()} />
+                    <Sort name="Date" onClick={() => console.log("Sort Date", raceFolders.sort((a,b) => a.name.localeCompare(b.name)))}/>
                     <Sort name="Duration" onClick={() => console.log("Sort Duration")}/>
                 </div>
 
