@@ -27,7 +27,7 @@ export default function Home(){
                 <div className="racehistory--description">
                     <h4>ID</h4>
                     <Sort name="Name" onClick={() => raceFoldermModifier.SortByName()} />
-                    <Sort name="Date" onClick={() => console.log("Sort Date", raceFolders.sort((a,b) => a.name.localeCompare(b.name)))}/>
+                    <Sort name="Date" onClick={() => raceFoldermModifier.SortByDate()}/>
                     <Sort name="Duration" onClick={() => raceFoldermModifier.SortByDuration()}/>
                 </div>
 
