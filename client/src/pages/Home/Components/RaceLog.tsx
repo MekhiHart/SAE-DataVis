@@ -24,7 +24,7 @@ export default function RaceLog(props:RaceLogProps){
 
 interface IDetailProps{
     icon: IconDefinition,
-    content: string,
+    content: string | number,
     isDuration?: boolean,
     isName?: boolean
 

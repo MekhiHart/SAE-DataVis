@@ -9,7 +9,7 @@
 .racehistory--header{
     display: flex;
     background-color:  #98CCFC;
-    padding: 15px 15px 15px 30px;
+    padding: 20px 15px 20px 30px;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
 
@@ -86,4 +86,9 @@
 .racelog:active{
     box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
 
+}
+
+#sort--button{
+    align-items: center;
+    background-color: transparent;
 }
