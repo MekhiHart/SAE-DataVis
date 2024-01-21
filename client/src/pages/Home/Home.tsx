@@ -9,10 +9,6 @@ export default function Home(){
     const {raceFolders, raceFoldermModifier} = useGetRaceFolders()
     const [search, setSearch] = useState("")
     
-
-    useEffect(() => {
-        console.log("race: ", raceFolders)
-    },[raceFolders])
     return(
         <>
             <div className="flex">
@@ -32,7 +28,7 @@ export default function Home(){
                     <h4>ID</h4>
                     <Sort name="Name" onClick={() => raceFoldermModifier.SortByName()} />
                     <Sort name="Date" onClick={() => console.log("Sort Date", raceFolders.sort((a,b) => a.name.localeCompare(b.name)))}/>
-                    <Sort name="Duration" onClick={() => console.log("Sort Duration")}/>
+                    <Sort name="Duration" onClick={() => raceFoldermModifier.SortByDuration()}/>
                 </div>
 
                 <div id="racehistory--body">

@@ -3,7 +3,7 @@ export namespace Interfaces{
         id: string,
         name: string,
         date: string,
-        duration: string,
+        duration: number,
         bucketKey: string
     }
 

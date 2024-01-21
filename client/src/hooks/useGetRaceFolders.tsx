@@ -12,6 +12,13 @@ export const useGetRaceFolders = () => {
                 const temp = [...prev].sort((a,b) => a.name.localeCompare(b.name))
                 return temp
             })
+        }// SortByName
+
+        SortByDuration(){
+            setRaceFolders((prev) => {
+                const temp = [...prev].sort((a,b) => a.duration - b.duration)
+                return temp
+            })
         }
     } // RaceFolderModifier
 
