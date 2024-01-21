@@ -1,6 +1,6 @@
 import { useGetRaceFolders } from "../../hooks/useGetRaceFolders";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faFileArrowUp, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon, FontAwesomeIconProps } from "@fortawesome/react-fontawesome";
+import {faFileArrowUp, faMagnifyingGlass, faSort } from "@fortawesome/free-solid-svg-icons";
 import RaceLogList from "./components/RaceLogList";
 
 import { useState } from "react";
@@ -22,14 +22,13 @@ export default function Home(){
                         <FontAwesomeIcon icon={faMagnifyingGlass}/>
                         <input value={search} onChange={(event) => setSearch(event.target.value) } type="text" placeholder="Search Race"/>
                     </span>
-                    <h4 style={{marginLeft:"auto", paddingRight:"25px"}}>Name</h4>
                 </div>
 
                 <div className="racehistory--description">
                     <h4>ID</h4>
-                    <h4>Name</h4>
-                    <h4>Date</h4>
-                    <h4>Duration</h4>
+                    <Sort name="Name" onClick={() => console.log("Sort Name")} />
+                    <Sort name="Date" onClick={() => console.log("Sort Date")}/>
+                    <Sort name="Duration" onClick={() => console.log("Sort Duration")}/>
                 </div>
 
                 <div id="racehistory--body">
@@ -47,6 +46,19 @@ export default function Home(){
     )
 }
 
+interface SortProps{
+    name: string
+    onClick: () => void
+}
+const Sort = (props: SortProps) => {
+    return(
+        <div onClick={props.onClick} className="flex" style={{alignItems:"center"}}>
+            <h4 style={{paddingRight:"7px"}}>{props.name}</h4>
+            <FontAwesomeIcon icon={faSort} size={"sm"} />
+        </div>
+        
+    )
+}
 
 
 const Upload = () =>{
