@@ -36,8 +36,8 @@ export default function Home(){
                     <RaceLogList RaceLogListData={
                         raceFolders.filter((raceFolder) => {
                             return search.toLowerCase() === "" 
-                                ? raceFolder 
-                                : raceFolder.name.toLowerCase().includes(search.toLowerCase())
+                                ? true
+                                : raceFolder.name.toLowerCase().includes(search.toLowerCase()) || raceFolder.date.includes(search)
                         })
                     } />
                 </div>
