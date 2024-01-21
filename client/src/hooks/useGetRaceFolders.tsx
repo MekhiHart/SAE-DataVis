@@ -19,14 +19,15 @@ export const useGetRaceFolders = () => {
                 const temp = [...prev].sort((a,b) => a.duration - b.duration)
                 return temp
             })
-        }
+        } // SortByDuration
 
         SortByDate(){
             setRaceFolders((prev) => {
                 const temp = [...prev].sort((a,b) => new Date(a.date).getTime() - new Date(b.date).getTime())
                 return temp
             })
-        }
+        } // SortByDate
+
     } // RaceFolderModifier
 
     const raceFoldermModifier = new RaceFolderModifier()
