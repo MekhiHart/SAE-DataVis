@@ -1,14 +1,28 @@
 footer{
-    background-color: #f1f1fc;
-    margin: 30px 0;
+    /* background-color: #f1f1fc; */
+    margin: 10px 0;
 
     display: flex;
     align-items: center; 
     justify-content: center;
 }
 
+#website--icon{
+    width: 70px;
+    height: 70px;
+}
+
+#website--title{
+    color: black;
+    margin-left: 20px;
+}
+
+#layout{
+    margin: 0 60px
+}
+
 #navbar{
-    background-color: #f1f1fc;
+    /* background-color: #f1f1fc; */
     height: 90px;
     display: flex;
     align-items: center;

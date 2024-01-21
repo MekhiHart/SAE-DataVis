@@ -1,9 +1,12 @@
 
 // import s3Client from "../config/dbS3.config"
 const s3 = require("../config/dbS3.config")
-const RaceModel = require("../models/RaceModel")
 const path = require('path');
 const dotenv = require('dotenv');
+
+const RaceLogModel = require("../models/RaceLogModel")
+const SubsystemModel = require("../models/SubsystemModel")
+const AnalysisModel = require("../models/AnalysisModel")
 
 
 // Construct the absolute path to the .env file
@@ -129,13 +132,7 @@ class DBS3Controller{
 
         // removes the folder from the contents
         const contents = data.Contents.filter(content => content.Key !== prefix) 
-
-        // TODO Make a subsystem model from 'res'
-        const res = contents.map(content => ({
-            subsystem: parseSubsystem(content.Key),
-            key: content.Key
-        }))
-
+        const res = contents.map(content => (new SubsystemModel(parseSubsystem(content.Key), content.Key)))
         return res
             
             
@@ -151,18 +148,10 @@ class DBS3Controller{
         const data = await s3.getObject(params).promise()
         const metaData = data.Metadata
         metaData["bucket_key"] = key
-        const res = new RaceModel(metaData)
+        const res = new RaceLogModel(metaData)
         return res
     } // GetMetaData
 
-    //* called in Graph View
-    ParseObjectToJSON(data){
-        console.log("data: ", data)
-        const dataBuffer = data.Body
-        const bufferString = dataBuffer.toString("utf8")
-        console.log("buffer: ", bufferString)
-        // return jsonObject
-    } // ParseObjectToJSON
 
     async GetGraphJSON(bucketKey){
         const params = {
@@ -180,10 +169,12 @@ class DBS3Controller{
             return data
         }
         
+        // grabs JSON data in a form of a buffer
         const dataBuffer = data.Body
         
-        // Converts data buffer to JSON formater
-        const jsonObject = JSON.parse(dataBuffer.toString("utf-8"))
+        // Converts data buffer into object format
+        const jsonObject = new AnalysisModel(JSON.parse(dataBuffer.toString("utf-8")))
+        
         return jsonObject
     }
 

@@ -12,9 +12,9 @@ interface RaceLogProps{
 export default function RaceLog(props:RaceLogProps){
     const {id, name, date, duration, bucketKey} = props.RaceLogData
     return(
-        <Link to="/subsystem" state={{bucketKey: bucketKey, raceName: name}} className="racelog shadows" >
+        <Link to="/subsystem" state={{bucketKey: bucketKey, raceName: name}} className="racelog" >
             <Detail icon={faHashtag} content={id} />
-            <Detail icon={faFlagCheckered} content={name} />
+            <Detail icon={faFlagCheckered} content={name} isName={true} />
             <Detail icon={faCalendar} content={date} />
             <Detail icon={faClock} content={duration} isDuration={true} />
             <FontAwesomeIcon icon={faChevronRight}/>
@@ -25,14 +25,16 @@ export default function RaceLog(props:RaceLogProps){
 interface IDetailProps{
     icon: IconDefinition,
     content: string,
-    isDuration?: boolean
+    isDuration?: boolean,
+    isName?: boolean
+
 }
 function Detail(props: IDetailProps) {
-    const {icon, content, isDuration} = props
+    const {icon, content, isDuration, isName} = props
     return(
         <div style={{display:"flex", alignItems:"center"}}>
             <FontAwesomeIcon style={{paddingRight:"10px"}} icon={icon}/>
-            <span>{content } {isDuration && " minutes"}</span>
+            <span>{isName ? <b>{content}</b> : content} {isDuration && " minutes"}</span>
         </div>
     )
 }
