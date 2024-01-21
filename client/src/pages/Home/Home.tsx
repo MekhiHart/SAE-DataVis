@@ -2,9 +2,14 @@ import { useGetRaceFolders } from "../../hooks/useGetRaceFolders";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faFileArrowUp, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import RaceLogList from "./components/RaceLogList";
+
+import { useState } from "react";
 export default function Home(){
 
     const {raceFolders} = useGetRaceFolders()
+    const [search, setSearch] = useState("")
+
+    console.log("race folders: ", raceFolders)
     return(
         <>
             <div className="flex">
@@ -16,7 +21,7 @@ export default function Home(){
                 <div className="racehistory--header">
                     <span id="racehistory--search">
                         <FontAwesomeIcon icon={faMagnifyingGlass}/>
-                        <input type="text" placeholder="Search Race"/>
+                        <input value={search} onChange={(event) => setSearch(event.target.value) } type="text" placeholder="Search Race"/>
                     </span>
                     <h4 style={{marginLeft:"auto", paddingRight:"25px"}}>Name</h4>
                 </div>
@@ -29,7 +34,13 @@ export default function Home(){
                 </div>
 
                 <div id="racehistory--body">
-                    <RaceLogList RaceLogListData={raceFolders} />
+                    <RaceLogList RaceLogListData={
+                        raceFolders.filter((raceFolder) => {
+                            return search.toLowerCase() === "" 
+                                ? raceFolder 
+                                : raceFolder.name.toLowerCase().includes(search.toLocaleLowerCase())
+                        })
+                    } />
                 </div>
             </div>
 
