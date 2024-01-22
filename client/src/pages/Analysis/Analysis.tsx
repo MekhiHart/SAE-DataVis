@@ -2,7 +2,6 @@
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import Chart from "./components/Chart";
-import SubsystemIcon from "../../components/SubsystemIcon";
 import { useGetAllAnalysisData } from "../../hooks/useGetAllAnalysisData";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFlagCheckered } from "@fortawesome/free-solid-svg-icons/faFlagCheckered";
@@ -20,7 +19,6 @@ export default function Analysis(){
     const bucketKey = location.state && location.state.bucketKey
     const raceName = location.state && location.state.raceName
     const {graphData} = useGetAllAnalysisData(bucketKey)
-    console.log("graphdata: ", graphData)
     const [analysisMode, setAnalysisMode] = useState<AnalysisMode>(AnalysisMode.Line)
 
     
