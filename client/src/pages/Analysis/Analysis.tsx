@@ -60,9 +60,9 @@ const SubsystemButton = (props: {subsystemName: string, onClick: React.Dispatch<
   }, [isClicked])
 
   return(
-    <div className="flex" onClick={() => setIsClicked(prev => !prev)}>
+    <div className="flex subsystem--button" style={{backgroundColor: isClicked? "green" : "red"}} onClick={() => setIsClicked(prev => !prev)}>
       <SubsystemIcon subsystemName={subsystemName}/>
-      <h4>{subsystemName}</h4>
+      <h4 style={{marginLeft:"10px"}}>{subsystemName}</h4>
     </div>
   )
 }
