@@ -4,7 +4,7 @@ import { Interfaces } from "../utils/namespaces/Interfaces"
 
 
 export const useGetAllAnalysisData = (bucketKey: string) => {
-    const [subsystemData, setSubsystemData] = useState<any>([])
+    const [subsystemData, setSubsystemData] = useState<Interfaces.IAnalysisJSON[]>([])
 
     useEffect(() => {
         const fetchData = async () => {

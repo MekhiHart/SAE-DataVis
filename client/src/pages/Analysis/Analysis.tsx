@@ -4,6 +4,8 @@ import { useState } from "react";
 import Chart from "./components/Chart";
 import SubsystemIcon from "../../components/SubsystemIcon";
 import { useGetAnalysisData } from "../../hooks/useGetAnalysisData";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFlagCheckered } from "@fortawesome/free-solid-svg-icons/faFlagCheckered";
 
 
 enum AnalysisMode {
@@ -16,14 +18,14 @@ export default function Analysis(){
     const location = useLocation()
     
     const bucketKey = location.state && location.state.bucketKey
-    const subsystemName = location.state && location.state.subsystemName
+    const raceName = location.state && location.state.raceName
     const {graphData} = useGetAnalysisData(bucketKey)
     const [analysisMode, setAnalysisMode] = useState<AnalysisMode>(AnalysisMode.Line)
 
     
     return (
       <div style={{display:"flex", flexDirection:"column"}}>
-        <h2 style={{display:"flex", alignItems:"center"}}> {<SubsystemIcon subsystemName={subsystemName}/>} {subsystemName}</h2>
+        <h2 style={{display:"flex", alignItems:"center"}}> {<FontAwesomeIcon  style={{paddingRight: "10px"}}icon={faFlagCheckered}/>} {raceName}</h2>
         <div>
           <button className="custom--button shadows" onClick={() => setAnalysisMode(AnalysisMode.Line)}>Line</button>
           <button className="custom--button shadows" onClick={() => setAnalysisMode(AnalysisMode.Bar)}>Bar</button>

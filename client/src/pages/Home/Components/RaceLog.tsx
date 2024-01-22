@@ -12,7 +12,7 @@ interface RaceLogProps{
 export default function RaceLog(props:RaceLogProps){
     const {id, name, date, duration, bucketKey} = props.RaceLogData
     return(
-        <Link to="/subsystem" state={{bucketKey: bucketKey, raceName: name}} className="racelog" >
+        <Link to="/analysis" state={{bucketKey: bucketKey, raceName: name}} className="racelog" >
             <Detail icon={faHashtag} content={id} />
             <Detail icon={faFlagCheckered} content={name} isName={true} />
             <Detail icon={faCalendar} content={date} />
