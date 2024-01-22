@@ -18,6 +18,7 @@ export const useGetAllAnalysisData = (bucketKey: string) => {
             const chartData: Interfaces.IChart = {
                 labels: dataJSONArr[0].data.map(data => data.horizontalLabel),
                 datasets: dataJSONArr.map(dataJSON => ({
+                    subsystem: dataJSON.subsystem,
                     label: dataJSON.mainLabel,
                     data: dataJSON.data.map((data) => data.value),
                     backgroundColor: getRandomRGB(),
