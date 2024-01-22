@@ -21,8 +21,6 @@ export default function Analysis(){
     const {graphData} = useGetAllAnalysisData(bucketKey)
     const [analysisMode, setAnalysisMode] = useState<AnalysisMode>(AnalysisMode.Line)
 
-    console.log("graph: ", graphData)
-
     
     return (
       <div style={{display:"flex", flexDirection:"column"}}>
