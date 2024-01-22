@@ -45,11 +45,16 @@ export default function Chart(props:ChartProps){
 
   const data = props.ChartData
   const chartMode = props.analysisMode
+  const options = {
+    scales: {
+
+    },
+  };
 
   const Graph = () => {
     switch (chartMode){
       case AnalysisMode.Line:
-        return <Line data={data}/>
+        return <Line options={options} data={data}/>
       case AnalysisMode.Bar:
         return <Bar data={data}/>
       case AnalysisMode.Pie:
