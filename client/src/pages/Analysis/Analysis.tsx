@@ -20,6 +20,7 @@ export default function Analysis(){
     const raceName = location.state && location.state.raceName
     const {graphData} = useGetAllAnalysisData(bucketKey)
     const [analysisMode, setAnalysisMode] = useState<AnalysisMode>(AnalysisMode.Line)
+    const [renderSubsystem, setRendeerSubsystem] = useState(["Steering", "Rear Differential"])
 
     
     return (
@@ -30,7 +31,10 @@ export default function Analysis(){
           <button className="custom--button shadows" onClick={() => setAnalysisMode(AnalysisMode.Bar)}>Bar</button>
           <button className="custom--button shadows" onClick={() => setAnalysisMode(AnalysisMode.Pie)}>Pie</button>
         </div>
-        {graphData && <Chart ChartData={graphData} analysisMode={analysisMode} setChartMode={setAnalysisMode}/>}
+        {graphData && <Chart ChartData={{
+          labels: graphData.labels,
+          datasets: graphData.datasets.filter((data) => renderSubsystem.includes(data.subsystem))
+        }} analysisMode={analysisMode} setChartMode={setAnalysisMode}/>}
       </div>
     );
 }
