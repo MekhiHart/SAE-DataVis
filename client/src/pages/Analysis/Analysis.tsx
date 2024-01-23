@@ -7,6 +7,7 @@ import { FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import { faFlagCheckered } from "@fortawesome/free-solid-svg-icons/faFlagCheckered";
 
 import SubsystemIcon from "../../components/SubsystemIcon";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
 
 
 enum AnalysisMode {
@@ -61,7 +62,7 @@ const SubsystemButton = (props: {subsystemName: string, onClick: React.Dispatch<
 
   return(
     <div className="flex subsystem--button" style={{backgroundColor: isClicked? "#98CCFC" : "#def0ff"}} onClick={() => setIsClicked(prev => !prev)}>
-      <SubsystemIcon subsystemName={subsystemName}/>
+      {isClicked ? <FontAwesomeIcon icon={faCheck}/> : <SubsystemIcon subsystemName={subsystemName}/>}
       <h4 style={{marginLeft:"10px"}}>{subsystemName}</h4>
     </div>
   )
