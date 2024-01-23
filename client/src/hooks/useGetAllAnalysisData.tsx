@@ -40,11 +40,11 @@ export const useGetAllAnalysisData = (bucketKey: string) => {
 
 const subsystemColorPairs: {[subsystemName: string]:string} = {
     "Brakes": "#1B998B ",
-    "Chassis": "#2E294E",
+    "Chassis": "#1B2CC1",
     "Drive Train": "#f46036",
-    "Front Suspension": "#e71d36",
+    "Front Suspension": "#AF9164",
     "Rear Differential":"#80a4ed",
-    "Rear Suspension": "#9D8189",
+    "Rear Suspension": "#B3B6B7",
     "Steering": "#F4ACB7"
 }
 
