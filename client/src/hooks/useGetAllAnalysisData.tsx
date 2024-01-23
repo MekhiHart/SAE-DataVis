@@ -21,8 +21,8 @@ export const useGetAllAnalysisData = (bucketKey: string) => {
                     subsystem: dataJSON.subsystem,
                     label: dataJSON.mainLabel,
                     data: dataJSON.data.map((data) => data.value),
-                    backgroundColor: getRandomRGB(),
-                    borderColor: getRandomRGB(),
+                    backgroundColor: getRandomRGB(dataJSON.subsystem),
+                    borderColor: getRandomRGB(dataJSON.subsystem),
                     borderWidth: 2,
                 }) )
             } // chartData
@@ -38,10 +38,18 @@ export const useGetAllAnalysisData = (bucketKey: string) => {
     return {graphData}
 }
 
-function getRandomRGB() {
-    const red = Math.floor(Math.random() * 256);
-    const green = Math.floor(Math.random() * 256);
-    const blue = Math.floor(Math.random() * 256);
-  
-    return `rgb(${red}, ${green}, ${blue})`;
+const subsystemColorPairs: {[subsystemName: string]:string} = {
+    "Brakes": "#1B998B ",
+    "Chassis": "#2E294E",
+    "Drive Train": "#f46036",
+    "Front Suspension": "#e71d36",
+    "Rear Differential":"#80a4ed",
+    "Rear Suspension": "#9D8189",
+    "Steering": "#F4ACB7"
+}
+
+function getRandomRGB(subsystem: string) {
+    const color = subsystemColorPairs[subsystem]
+    return color
+    
   }
