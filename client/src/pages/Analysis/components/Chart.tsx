@@ -50,7 +50,7 @@ export default function Chart(props:ChartProps){
       plugins: {
         title: {
           display: true,
-          text: 'SAE Line Chart'
+          text: 'Subsystems Multiline Chart'
         }
       }
   };
