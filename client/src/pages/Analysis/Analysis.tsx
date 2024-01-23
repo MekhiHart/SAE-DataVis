@@ -37,7 +37,7 @@ export default function Analysis(){
       <div style={{display:"flex", flexDirection:"column"}}>
         <h2 style={{display:"flex", alignItems:"center"}}> {<FontAwesomeIcon  style={{paddingRight: "10px"}}icon={faFlagCheckered}/>} {raceName}</h2>
         <div className="flex">
-          {graphData && graphData.datasets.map((dataset) => <SubsystemButton subsystemName={dataset.subsystem} onClick={setRenderSubsystem}/>)}
+          {graphData && graphData.datasets.map((dataset) => <SubsystemButton key={dataset.subsystem} subsystemName={dataset.subsystem} onClick={setRenderSubsystem}/>)}
         </div>
         {graphData && <Chart ChartData={{
           labels: graphData.labels,
