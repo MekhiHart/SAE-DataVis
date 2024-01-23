@@ -29,3 +29,10 @@
     user-select: none;
 
 }
+
+#subsystem--check--icon{
+    border-radius: 20px;
+    width: 17px;
+    padding: 5px;
+    background-color: #def0ff;
+}

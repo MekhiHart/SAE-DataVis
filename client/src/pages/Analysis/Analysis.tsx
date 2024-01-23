@@ -62,7 +62,7 @@ const SubsystemButton = (props: {subsystemName: string, onClick: React.Dispatch<
 
   return(
     <div className="flex subsystem--button" style={{backgroundColor: isClicked? "#98CCFC" : "#def0ff"}} onClick={() => setIsClicked(prev => !prev)}>
-      {isClicked ? <FontAwesomeIcon icon={faCheck}/> : <SubsystemIcon subsystemName={subsystemName}/>}
+      {isClicked ? <FontAwesomeIcon id="subsystem--check--icon" icon={faCheck}/> : <SubsystemIcon subsystemName={subsystemName}/>}
       <h4 style={{marginLeft:"10px"}}>{subsystemName}</h4>
     </div>
   )
