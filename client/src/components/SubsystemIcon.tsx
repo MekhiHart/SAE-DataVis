@@ -12,19 +12,19 @@ export default function SubsystemIcon(props: {subsystemName: string}){
             icon = faWrench
             break
 
-        case "Drive train":
+        case "Drive Train":
             icon = faCar
             break
         
-        case "Front suspension":
+        case "Front Suspension":
             icon = faDownLeftAndUpRightToCenter
             break
         
-        case "Rear diff":
+        case "Rear Differential":
             icon = faGears
             break
 
-        case "Rear suspension":
+        case "Rear Suspension":
             icon = faDownLeftAndUpRightToCenter
             break
 

@@ -26,6 +26,7 @@ export namespace Interfaces{
     export interface IChart {
         labels: string[];
         datasets: {
+            subsystem: string,
             label: string;
             data: number[];
             backgroundColor: string;

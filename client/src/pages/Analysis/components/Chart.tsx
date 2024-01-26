@@ -45,11 +45,28 @@ export default function Chart(props:ChartProps){
 
   const data = props.ChartData
   const chartMode = props.analysisMode
+  const config = {
+      responsive: true,
+      plugins: {
+        title: {
+          display: true,
+          text: 'Subsystems Multiline Chart'
+        }
+      }
+  };
+
+  const fakeData = {
+    datasets: [{
+      data: [0],
+      label: "category"
+    }],
+    labels: [""],
+  }
 
   const Graph = () => {
     switch (chartMode){
       case AnalysisMode.Line:
-        return <Line data={data}/>
+        return <Line options={config}  data={data.datasets.length == 0 ? fakeData: data}/>
       case AnalysisMode.Bar:
         return <Bar data={data}/>
       case AnalysisMode.Pie:
