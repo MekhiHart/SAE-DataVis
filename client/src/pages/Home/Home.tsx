@@ -1,7 +1,7 @@
 import { useGetRaceFolders } from "../../hooks/useGetRaceFolders";
 import { FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faFileArrowUp, faMagnifyingGlass, faSort } from "@fortawesome/free-solid-svg-icons";
-import RaceLogList from "./components/RaceLogList";
+import RaceLogList from "./components/RaceLogList.tsx"
 
 import {useState } from "react";
 export default function Home(){

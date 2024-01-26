@@ -1,5 +1,5 @@
 import { Interfaces } from "../../../utils/namespaces/Interfaces"
-import RaceLog from "./RaceLog"
+import RaceLog from "./RaceLog.tsx"
 
 interface RaceLogListProps{
     RaceLogListData: Interfaces.IRaceLog[]
