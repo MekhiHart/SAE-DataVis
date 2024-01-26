@@ -15,6 +15,7 @@ export const useGetAnalysisData = (bucketKey: string | undefined) => {
                 labels: json.data.map(data => data.horizontalLabel),
                 datasets: [
                   {
+                    subsystem: json.subsystem,
                     label: json.mainLabel,
                     data: json.data.map((data) => data.value),
                     backgroundColor: 'rgb(75, 192, 192)',

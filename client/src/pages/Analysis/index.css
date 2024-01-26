@@ -1,5 +1,6 @@
 #chart--container{
-    width: 50%;
+    margin-top: 50px;
+    width: 60%;
     justify-self: center;
     align-self: center;
     justify-content: center;
@@ -14,4 +15,24 @@
 
     border-width: 0;
     background-color: #75c6e7
+}
+
+.subsystem--button{
+    margin-right: 20px;
+    border: 2px solid lightgray;
+    border-radius: 30px;
+    align-items: center;
+    height: 30px;
+    padding: 5px 15px 5px 15px;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+    user-select: none;
+
+}
+
+#subsystem--check--icon{
+    border-radius: 20px;
+    width: 17px;
+    padding: 5px;
+    background-color: #def0ff;
 }
