@@ -7,14 +7,17 @@ dotenv.config()
 // routes
 const api =require("./src/routes/dbS3.route")
 
-const PORT = process.env.PORT || 3002
+const PORT = process.env.PORT || 8000
 
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger/swagger.json');
 
 // * Middle ware
 app.use(cors()) // * allows app to set headers to http responses and requests
 app.use(express.json()); // parses incoming JSON and converts it to Javascript objects
 
 app.use("/api",api )
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 try{
     app.listen(PORT, () =>{
