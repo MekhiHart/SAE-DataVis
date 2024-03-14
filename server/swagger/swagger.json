@@ -44,12 +44,17 @@
     },
     "/api/getRaceFolderContents": {
       "post": {
-        "parameters": "- in: body,name: user",
-        "responses": {
-          "200": {
-            "description": "OK"
+        "parameters": [
+          {
+            "name": "bucket_key",
+            "in": "body",
+            "description": "Obtains the available components of a particular race, including the each bucket key of the available component.\n\nExample parameter value: {\"bucket_key\":\"race_folders/race_2/\"}",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
-        }
+        ]
       }
     },
     "/api/getGraphJSON": {
@@ -59,7 +64,18 @@
           "200": {
             "description": "OK"
           }
-        }
+        },
+        "parameters": [
+          {
+            "name": "bucket_key",
+            "in": "body",
+            "description": "Obtains the dataset of a particular component.\n\nExample parameter value: {\"bucket_key\":\"race_folders/race_2/brakes.json\"}",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
       }
     }
   },
