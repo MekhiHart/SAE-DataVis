@@ -1,14 +1,18 @@
 import { Interfaces } from "../../utils/namespaces/Interfaces";
 
+const rootUrl = import.meta.env.VITE_ROOT_SERVER
 class DBS3Controller{
     async GetRaceFolders(): Promise<Interfaces.IRaceLog[]>{
-        const data = await fetch("http://localhost:8000/api/getAllRaces")
+        const api = "getAllRaces"
+        const url = rootUrl + api
+        const data = await fetch(url)
         const res: Interfaces.IRaceLog[] = await data.json()
         return res
     }
 
     async GetRaceFolderContents(bucketKey: string): Promise<Interfaces.ISubsystem[]>{
-        const url = "http://localhost:8000/api/getRaceFolderContents/"
+        const api = "getRaceFolderContents"
+        const url = rootUrl + api
         const data = await fetch(url, {
             method: "POST",
             mode: "cors",
@@ -25,7 +29,8 @@ class DBS3Controller{
     }
 
     async GetAnalysisData(bucketKey: string): Promise<Interfaces.IAnalysisJSON>{
-        const url = "http://localhost:8000/api/getGraphJSON/"
+        const api = "getGraphJSON"
+        const url = rootUrl + api
         const data = await fetch(url,{
             method: "POST",
             mode: "cors",

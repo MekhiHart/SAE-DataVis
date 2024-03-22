@@ -9,7 +9,6 @@ import NoPage from "./pages/NoPage/NoPage";
 
 
 function App() {
-
   return (
     <BrowserRouter>
       <Routes>
