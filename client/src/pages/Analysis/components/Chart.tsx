@@ -16,7 +16,7 @@ import {
   ArcElement
 } from 'chart.js';
 
-import {Bar, Line, Pie} from "react-chartjs-2"
+import { Bar, Line, Pie } from "react-chartjs-2"
 
 interface ChartProps {
   ChartData: Interfaces.IChart,
@@ -30,7 +30,7 @@ enum AnalysisMode {
   Pie
 }
 
-export default function Chart(props:ChartProps){
+export default function Chart(props: ChartProps) {
   ChartJS.register(
     ArcElement,
     LineElement,
@@ -46,13 +46,18 @@ export default function Chart(props:ChartProps){
   const data = props.ChartData
   const chartMode = props.analysisMode
   const config = {
-      responsive: true,
-      plugins: {
-        title: {
-          display: true,
-          text: 'Subsystems Multiline Chart'
-        }
+    responsive: true,
+
+    plugins: {
+      title: {
+        display: true,
+        align: 'center',
+        position: 'bottom',
+        fullSize: true,
+        font: {size: 20, weight: 'bold'},
+        text: 'Percentage of Race Completed',
       }
+    }
   };
 
   const fakeData = {
@@ -64,19 +69,19 @@ export default function Chart(props:ChartProps){
   }
 
   const Graph = () => {
-    switch (chartMode){
+    switch (chartMode) {
       case AnalysisMode.Line:
-        return <Line options={config}  data={data.datasets.length == 0 ? fakeData: data}/>
+        return <Line options={config} data={data.datasets.length == 0 ? fakeData : data} />
       case AnalysisMode.Bar:
-        return <Bar data={data}/>
+        return <Bar data={data} />
       case AnalysisMode.Pie:
-        return <Pie style={{maxHeight:"550px"}} data={data}/>
+        return <Pie style={{ maxHeight: "550px" }} data={data} />
     }
   }
 
   return (
     <div id="chart--container">
-        <Graph />
+      <Graph />
     </div>
   );
 }
