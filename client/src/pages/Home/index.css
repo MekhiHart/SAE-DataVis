@@ -99,3 +99,17 @@
     align-items: center;
     background-color: transparent;
 }
+
+#upload--button{
+    display: flex;
+    color: black;
+    align-items: center;
+    margin-left: auto;
+    text-decoration: none;
+
+    padding-right: 13px;
+}
+
+#upload--button:hover{
+    text-decoration: underline;
+}
