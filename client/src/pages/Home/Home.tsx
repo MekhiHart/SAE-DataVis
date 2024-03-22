@@ -1,6 +1,6 @@
 import { useGetRaceFolders } from "../../hooks/useGetRaceFolders";
 import { FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faMagnifyingGlass, faSort } from "@fortawesome/free-solid-svg-icons";
+import {faMagnifyingGlass, faSort, faCalendarDays } from "@fortawesome/free-solid-svg-icons";
 
 import RaceLogList from "./components/RaceLogList";
 import UploadButton from "./components/UploadButton"
@@ -13,7 +13,8 @@ export default function Home(){
     
     return(
         <>
-            <div className="flex">
+            <div className="flex" style={{alignItems:"center"}}>
+                <FontAwesomeIcon size="2x" style={{color:"black", marginRight:"10", scale:"75%"}} icon={faCalendarDays}/>
                 <h2>Race History</h2>
             </div>
 

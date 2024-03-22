@@ -4,8 +4,8 @@ export default function Upload(){
 
     return(
         <span style={{display: "flex", alignItems:"center"}}>
+            <FontAwesomeIcon size="2x" style={{color:"black", marginRight:"10", scale:"75%"}} icon={faFileArrowUp} />
             <h2>Upload Race File</h2>
-            <FontAwesomeIcon size="2x" style={{color:"black", marginLeft:"10", scale:"75%"}} icon={faFileArrowUp} />
         </span>
         
     )
