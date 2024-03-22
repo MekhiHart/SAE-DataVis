@@ -14,7 +14,7 @@ export default function Home(){
     return(
         <>
             <div className="flex">
-                <h3>Race History</h3>
+                <h2>Race History</h2>
             </div>
 
             <div className="racehistory--container">
