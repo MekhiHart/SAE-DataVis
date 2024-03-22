@@ -1,8 +1,9 @@
-import {Link} from "react-router-dom"
 import { useGetRaceFolders } from "../../hooks/useGetRaceFolders";
 import { FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faFileArrowUp, faMagnifyingGlass, faSort } from "@fortawesome/free-solid-svg-icons";
+import {faMagnifyingGlass, faSort } from "@fortawesome/free-solid-svg-icons";
+
 import RaceLogList from "./components/RaceLogList";
+import UploadButton from "./components/UploadButton"
 
 import {useState } from "react";
 export default function Home(){
@@ -14,7 +15,6 @@ export default function Home(){
         <>
             <div className="flex">
                 <h3>Race History</h3>
-                <Upload/>
             </div>
 
             <div className="racehistory--container">
@@ -23,6 +23,7 @@ export default function Home(){
                         <FontAwesomeIcon icon={faMagnifyingGlass}/>
                         <input value={search} onChange={(event) => setSearch(event.target.value) } type="text" placeholder="Search Race"/>
                     </span>
+                    <UploadButton/>
                 </div>
                 
                 <div className="racehistory--description">
@@ -59,15 +60,4 @@ const Sort = (props: SortProps) => {
         </div>
         
     )
-}
-
-
-const Upload = () =>{
-    return(
-    <Link to="upload" style={{display:"flex", color:"black", alignItems:"center", marginLeft:"auto"}}>
-        <h4>Upload Race</h4>
-        <FontAwesomeIcon size="2x" style={{color:"black", marginLeft:"10", scale:"75%"}} icon={faFileArrowUp} />
-    </Link>
-    )
-
 }
