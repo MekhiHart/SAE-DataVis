@@ -8,9 +8,6 @@ export default function NavBar() {
     const divStyle: React.CSSProperties = {
         cursor: 'pointer', // Set cursor to hand pointer
         width: '32%',
-        borderRadius: '6px',
-        backgroundColor: 'lightblue',
-        margin: '6px',
         // marginTop: '7px',
     };
 
