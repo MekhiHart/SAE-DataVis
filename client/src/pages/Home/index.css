@@ -32,11 +32,18 @@
 #racehistory--body{ 
     overflow-y: auto; 
     height: 55vh; 
-
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
 
 }
+
+@media(max-width: 1110px){ 
+    #racehistory--body{
+        height: 50vh !important;
+    }
+}
+
+
 
 #racehistory--search{
     
