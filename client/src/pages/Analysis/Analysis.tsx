@@ -40,10 +40,13 @@ export default function Analysis(){
         <div className="flex">
           {graphData && graphData.datasets.map((dataset) => <SubsystemButton key={dataset.subsystem} subsystemName={dataset.subsystem} onClick={setRenderSubsystem}/>)}
         </div>
-        {graphData && <Chart ChartData={{
-          labels: graphData.labels,
+        {graphData && <Chart 
+        ChartData={{
+          labels: graphData.labels ,
           datasets: graphData.datasets.filter((data) => renderSubsystem[data.subsystem] === true)
-        }} analysisMode={analysisMode} setChartMode={setAnalysisMode}/>}
+        }} analysisMode={analysisMode} setChartMode={setAnalysisMode}
+        
+        />}
       </div>
     );
 }
