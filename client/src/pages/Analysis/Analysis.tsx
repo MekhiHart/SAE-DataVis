@@ -1,13 +1,12 @@
 
 import { useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState} from "react"
+
 import Chart from "./components/Chart";
 import { useGetAllAnalysisData } from "../../hooks/useGetAllAnalysisData";
 import { FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import { faFlagCheckered } from "@fortawesome/free-solid-svg-icons/faFlagCheckered";
-
-import SubsystemIcon from "../../components/SubsystemIcon";
-import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import { SubsystemButton } from "../../components/SubsystemButton";
 
 
 enum AnalysisMode {
@@ -49,24 +48,4 @@ export default function Analysis(){
         />}
       </div>
     );
-}
-
-const SubsystemButton = (props: {subsystemName: string, onClick: React.Dispatch<React.SetStateAction<{[subsystemName: string]: boolean}>>}) => {
-  const {subsystemName, onClick} = props
-  const [isClicked, setIsClicked] = useState(false)
-
-  useEffect(() => {
-    onClick((prev) => {
-      const temp = {...prev}
-      temp[subsystemName] = !temp[subsystemName]
-      return temp
-    })
-  }, [isClicked])
-
-  return(
-    <div className="flex subsystem--button" style={{backgroundColor: isClicked? "#98CCFC" : "#def0ff"}} onClick={() => setIsClicked(prev => !prev)}>
-      {isClicked ? <FontAwesomeIcon id="subsystem--check--icon" icon={faCheck}/> : <SubsystemIcon subsystemName={subsystemName}/>}
-      <h4 style={{marginLeft:"10px"}}>{subsystemName}</h4>
-    </div>
-  )
 }
