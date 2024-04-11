@@ -55,7 +55,7 @@ export default function Chart(props: ChartProps) {
         position: 'bottom',
         fullSize: true,
         font: {size: 20, weight: 'bold'},
-        text: 'Percentage of Race Completed',
+        text: 'Race Duration',
       }
     }
   };

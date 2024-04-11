@@ -7,6 +7,5 @@ export default function Upload(){
             <FontAwesomeIcon size="2x" style={{color:"black", marginRight:"10", scale:"75%"}} icon={faFileArrowUp} />
             <h2>Upload Race File</h2>
         </span>
-        
     )
 }
