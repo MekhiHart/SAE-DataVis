@@ -1,3 +1,21 @@
 .subsystem--icon{
     height: 17px;
 }
+
+.subsystem--button--name{
+    margin-left: 10px;
+}
+
+/* 1110px is the ipad screen */
+@media only screen and (max-width: 1110px) {
+    .subsystem--button--name {
+        font-size: 12px;
+      }
+
+    .subsystem--button{
+        scale: 90%;
+    }
+
+  }
+
+

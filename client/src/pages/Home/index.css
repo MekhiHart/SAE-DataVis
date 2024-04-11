@@ -37,6 +37,7 @@
 
 }
 
+/* 1110px is the ipad screen */
 @media(max-width: 1110px){ 
     #racehistory--body{
         height: 45vh ;
