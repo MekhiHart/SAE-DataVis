@@ -3,14 +3,10 @@ import { FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faFileArrowUp} from "@fortawesome/free-solid-svg-icons";
 import InputField from "./components/InputField";
 export default function Upload(){
-    const [fieldValue, setFieldValue] = useState<string>("")
-    const [raceDate, setRaceDate] = useState<string>("")
-    const [raceDuration, setRaceDuration] = useState<string>("")
+    const [raceName, setRaceName] = useState<string>("")
+    const [raceDate, setRaceDate] = useState<Date>(new Date())
+    const [raceDuration, setRaceDuration] = useState<number>(0)
 
-
-    useEffect(() => {
-        console.log(fieldValue)
-    }, [fieldValue])
     return(
         <>
             <div style={{display: "flex", alignItems:"center"}}>
@@ -18,13 +14,8 @@ export default function Upload(){
                 <h2>Upload Race File</h2>
             </div>
 
-            <InputField name={"Race Name"} fieldValue={[fieldValue,setFieldValue]}/>
-            <InputField name={"Race Duration"} fieldValue={[fieldValue,setFieldValue]}/>
-            <InputField name={"Race Date"} fieldValue={[fieldValue,setFieldValue]}/>
-
-
-
-            
+            <InputField name={"Race Name"} fieldValue={[raceName,setRaceName]} fieldType="text"/>
+            <InputField name={"Race Duration"} fieldValue={[raceDuration, setRaceDuration]} fieldType="number"/>
 
 
         </>
