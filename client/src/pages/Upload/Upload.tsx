@@ -4,6 +4,10 @@ import {faFileArrowUp} from "@fortawesome/free-solid-svg-icons";
 import InputField from "./components/InputField";
 export default function Upload(){
     const [fieldValue, setFieldValue] = useState<string>("")
+    const [raceDate, setRaceDate] = useState<string>("")
+    const [raceDuration, setRaceDuration] = useState<string>("")
+
+
     useEffect(() => {
         console.log(fieldValue)
     }, [fieldValue])
@@ -14,7 +18,11 @@ export default function Upload(){
                 <h2>Upload Race File</h2>
             </div>
 
-            <InputField name={"Hello"} fieldValue={[fieldValue,setFieldValue]}/>
+            <InputField name={"Race Name"} fieldValue={[fieldValue,setFieldValue]}/>
+            <InputField name={"Race Duration"} fieldValue={[fieldValue,setFieldValue]}/>
+            <InputField name={"Race Date"} fieldValue={[fieldValue,setFieldValue]}/>
+
+
 
             
 

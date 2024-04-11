@@ -1,0 +1,9 @@
+.fieldbox--parent{
+    display: flex;
+    flex-direction: column;
+}
+
+.fieldbox--body{
+    display: flex;
+    height: 50px;
+}
