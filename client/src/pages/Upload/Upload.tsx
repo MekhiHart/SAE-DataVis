@@ -21,31 +21,42 @@ export default function Upload(){
 
     const [files, setFiles] = useState([]);
 
-    function handleFileChange(event: React.ChangeEvent<HTMLInputElement>) {
-        const files = event.target.files
-        if (files){
-            setFiles([...files] as never[]);
+    
+    function handleFileChange(event: React.ChangeEvent<HTMLElement>) {
+
+        // * going from HTMLElement --> HTMLFormElement to access 'files' attribute 
+        if (event.target && event.target.tagName === 'FORM') {
+            // This is a form element
+            const formChangeEvent = event as React.ChangeEvent<HTMLFormElement>;
+            const files = formChangeEvent.target.files
+
+            if (files){
+                setFiles([...files] as never[]);
+            }
+
+            else{
+                //TODO add error handling if files is null
+            }
         }
 
-        else{
-            //TODO add error handling if files is null
+        else{ // invalid submission
+            // TODO add error handling if submission fails
         }
-        
-    }
+    } // handleFileChange
     
-    function handleSubmit(event: React.ChangeEvent<HTMLInputElement>) {
+    function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const url = 'http://localhost:3000/uploadFiles';
+    const url = 'http://localhost:3000/uploadFiles'; //TODO change url later
     const formData = new FormData();
     files.forEach((file, index) => {
         formData.append(`file${index}`, file);
-    });
+    })
 
     const config = {
         headers: {
         'content-type': 'multipart/form-data',
         },
-    };
+    }
 
     axios.post(url, formData, config)
         .then((response) => {
@@ -53,8 +64,8 @@ export default function Upload(){
         })
         .catch((error) => {
         console.error("Error uploading files: ", error);
-        });
-      }
+        })
+      } // handleSubmit
 
     return(
         <>
@@ -76,9 +87,6 @@ export default function Upload(){
                 <input type="file" multiple onChange={handleFileChange}/>
                 <button type="submit">Upload</button>
             </form>
-
-            
-
         </>
 
     )
