@@ -1,4 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState} from "react";
+import axios from 'axios';
+
 import { FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faFileArrowUp} from "@fortawesome/free-solid-svg-icons";
 
@@ -17,6 +19,43 @@ export default function Upload(){
     const [raceDate, setRaceDate] = useState<Value>(new Date())
     const [raceDuration, setRaceDuration] = useState<number>(0)
 
+    const [files, setFiles] = useState([]);
+
+    function handleFileChange(event: React.ChangeEvent<HTMLInputElement>) {
+        const files = event.target.files
+        if (files){
+            setFiles([...files] as never[]);
+        }
+
+        else{
+            //TODO add error handling if files is null
+        }
+        
+    }
+    
+    function handleSubmit(event: React.ChangeEvent<HTMLInputElement>) {
+    event.preventDefault();
+    const url = 'http://localhost:3000/uploadFiles';
+    const formData = new FormData();
+    files.forEach((file, index) => {
+        formData.append(`file${index}`, file);
+    });
+
+    const config = {
+        headers: {
+        'content-type': 'multipart/form-data',
+        },
+    };
+
+    axios.post(url, formData, config)
+        .then((response) => {
+        console.log(response.data);
+        })
+        .catch((error) => {
+        console.error("Error uploading files: ", error);
+        });
+      }
+
     return(
         <>
             <div style={{display: "flex", alignItems:"center"}}>
@@ -31,6 +70,13 @@ export default function Upload(){
                 <h3>Race Date</h3>
                 <Calendar onChange={setRaceDate} value={raceDate} />
             </div>
+
+            <form onSubmit={handleSubmit}>
+                <h3>Submit Race</h3>
+                <input type="file" multiple onChange={handleFileChange}/>
+                <button type="submit">Upload</button>
+            </form>
+
             
 
         </>
