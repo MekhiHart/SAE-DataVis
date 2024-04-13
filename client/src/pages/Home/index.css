@@ -1,8 +1,15 @@
 .racehistory--container{
     border-radius: 20px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-    border: 4px #e0e9f1 solid
+    border: 4px #e0e9f1 solid;
+    
 }
+
+.vscrollbar
+{
+overflow-x: hidden; /*for hiding horizontal scroll bar*/
+overflow-y: auto; /*for vertical scroll bar*/
+} 
 
 /* #BDD0E1 */
 /* #e0e9f1 */
@@ -30,10 +37,21 @@
 }
 
 #racehistory--body{ 
-    overflow-y: auto; 
+    position: relative;
+    overflow-y: scroll; 
     height: 55vh; 
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
+}
+
+#racehistory--body::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 4px;
+}
+
+#racehistory--body::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, .5);
 
 }
 
